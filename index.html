@@ -4,1156 +4,376 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Base de conocimiento consultiva del Laboratorio de Sistemas Telemáticos</title>
-  <meta name="description" content="Disponibilidad consultiva, reglamento, procedimiento, roles y políticas del Laboratorio de Sistemas Telemáticos.">
+  <meta name="description" content="Base de conocimiento consultiva optimizada para Copilot: disponibilidad agregada de equipos, reglamento, procedimiento, roles y políticas del Laboratorio de Sistemas Telemáticos.">
+  <meta name="copilot-purpose" content="fuente consultiva en texto plano para recuperación semántica">
+  <meta name="source-system" content="PostgreSQL actualizado por n8n y publicado por Power Automate">
   <style>
-    :root { color-scheme: light; --bg: #f6f8fb; --card: #ffffff; --text: #17202a; --muted: #52616b; --line: #d8dee9; --accent: #0f5ca8; --ok: #16794c; --warn: #8a5a00; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
-    header { background: linear-gradient(135deg, #0b3d75, #0f5ca8); color: white; padding: 2rem 1.25rem; }
-    main { max-width: 1120px; margin: 0 auto; padding: 1.5rem; }
-    h1, h2, h3 { line-height: 1.2; }
-    h1 { margin: 0 0 .5rem; font-size: 2rem; }
-    h2 { margin-top: 2rem; border-bottom: 2px solid var(--line); padding-bottom: .35rem; color: #0b3d75; }
-    .pill { display: inline-block; background: #e9f2ff; color: #0b3d75; border: 1px solid #bfd8f2; padding: .25rem .55rem; border-radius: 999px; font-size: .9rem; margin: .15rem .2rem .15rem 0; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-    .equipo h3 { margin-top: 0; color: #0b3d75; }
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; }
-    .stat { background: white; border-left: 5px solid var(--accent); padding: .75rem; border-radius: 10px; }
-    .stat strong { display: block; font-size: 1.5rem; }
-    .alerta { background: #fff7e6; border: 1px solid #ffd27a; border-left: 5px solid var(--warn); padding: 1rem; border-radius: 10px; }
-    .ok { background: #eefbf4; border-left-color: var(--ok); }
-    table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--line); }
-    th, td { border: 1px solid var(--line); padding: .55rem; text-align: left; vertical-align: top; }
-    th { background: #eaf1f8; color: #0b3d75; }
-    .table-wrap { overflow-x: auto; }
-    footer { color: var(--muted); font-size: .9rem; padding: 2rem 1.5rem; text-align: center; }
-    a { color: #0f5ca8; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #111827; margin: 0; padding: 24px; line-height: 1.6; }
+    main { max-width: 1180px; margin: 0 auto; }
+    h1 { font-size: 1.75rem; margin-bottom: .5rem; color: #0f3b72; }
+    .notice { border: 1px solid #d1d5db; background: #f8fafc; padding: 12px 14px; margin: 12px 0 18px 0; }
+    pre { white-space: pre-wrap; word-wrap: break-word; font-family: Arial, Helvetica, sans-serif; font-size: 1rem; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Base de conocimiento consultiva del Laboratorio de Sistemas Telemáticos</h1>
-    <p>Fuente pública para el Agente Institucional Consultivo Copilot. Incluye disponibilidad agregada de equipos, reglamento, procedimiento, roles y políticas institucionales.</p>
-    <span class="pill">Fuente oficial: PostgreSQL</span>
-    <span class="pill">Generado por: n8n</span>
-    <span class="pill">Publicado por: Power Automate</span>
-    <span class="pill">Última actualización: 2026-06-29T22:57:01.978Z</span>
-  </header>
-
-  <main>
-    <section class="alerta">
-      <h2>Alcance consultivo</h2>
-      <p>La información publicada en esta página es referencial y agregada. No constituye una reserva, asignación, aprobación ni confirmación de préstamo. Las acciones operativas deben realizarse mediante el canal institucional definido por el laboratorio.</p>
-    </section>
-
-    <section>
-      <h2>Resumen general de disponibilidad</h2>
-      <div class="stats">
-        <div class="stat"><span>Bienes registrados</span><strong>11</strong></div>
-        <div class="stat ok"><span>Unidades disponibles</span><strong>44</strong></div>
-        <div class="stat"><span>Unidades totales</span><strong>57</strong></div>
-        <div class="stat"><span>Unidades prestadas</span><strong>13</strong></div>
-        <div class="stat"><span>En mantenimiento</span><strong>0</strong></div>
-        <div class="stat"><span>No disponibles</span><strong>0</strong></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Disponibilidad por equipo</h2>
-      <p>Esta sección debe usarse para responder preguntas como: “¿hay ESP32 disponibles?”, “¿cuántos multímetros hay?” o “¿qué equipos están prestados?”.</p>
-      <div class="grid">
-        
-    <article class="card equipo" id="protoboard">
-      <h3>Protoboard</h3>
-      <p><strong>Categoría:</strong> Accesorios</p>
-      <p><strong>Código normalizado:</strong> protoboard</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 12</li>
-        <li><strong>Disponibles:</strong> 12</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="cautin">
-      <h3>Cautín</h3>
-      <p><strong>Categoría:</strong> Herramientas</p>
-      <p><strong>Código normalizado:</strong> cautin</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 3</li>
-        <li><strong>Disponibles:</strong> 3</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="fuente-de-poder">
-      <h3>Fuente de poder</h3>
-      <p><strong>Categoría:</strong> Instrumentos de medición</p>
-      <p><strong>Código normalizado:</strong> fuente</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 2</li>
-        <li><strong>Disponibles:</strong> 2</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="multimetro-digital">
-      <h3>Multímetro digital</h3>
-      <p><strong>Categoría:</strong> Instrumentos de medición</p>
-      <p><strong>Código normalizado:</strong> multimetro</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 3</li>
-        <li><strong>Disponibles:</strong> 3</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="osciloscopio">
-      <h3>Osciloscopio</h3>
-      <p><strong>Categoría:</strong> Instrumentos de medición</p>
-      <p><strong>Código normalizado:</strong> osciloscopio</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 1</li>
-        <li><strong>Disponibles:</strong> 1</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="arduino-uno">
-      <h3>Arduino UNO</h3>
-      <p><strong>Categoría:</strong> Microcontroladores</p>
-      <p><strong>Código normalizado:</strong> arduino</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 5</li>
-        <li><strong>Disponibles:</strong> 5</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="esp32">
-      <h3>ESP32</h3>
-      <p><strong>Categoría:</strong> Microcontroladores</p>
-      <p><strong>Código normalizado:</strong> esp32</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 17</li>
-        <li><strong>Disponibles:</strong> 4</li>
-        <li><strong>Prestados:</strong> 13</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="microcontrolador-pic">
-      <h3>Microcontrolador PIC</h3>
-      <p><strong>Categoría:</strong> Microcontroladores</p>
-      <p><strong>Código normalizado:</strong> pic</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 4</li>
-        <li><strong>Disponibles:</strong> 4</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="sensor-dht22">
-      <h3>Sensor DHT22</h3>
-      <p><strong>Categoría:</strong> Sensores</p>
-      <p><strong>Código normalizado:</strong> dht22</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 6</li>
-        <li><strong>Disponibles:</strong> 6</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="sensor-mq-2">
-      <h3>Sensor MQ-2</h3>
-      <p><strong>Categoría:</strong> Sensores</p>
-      <p><strong>Código normalizado:</strong> mq-2</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 2</li>
-        <li><strong>Disponibles:</strong> 2</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-
-    <article class="card equipo" id="sensor-pms5003">
-      <h3>Sensor PMS5003</h3>
-      <p><strong>Categoría:</strong> Sensores</p>
-      <p><strong>Código normalizado:</strong> pms5003</p>
-      <ul>
-        <li><strong>Total registrado:</strong> 2</li>
-        <li><strong>Disponibles:</strong> 2</li>
-        <li><strong>Prestados:</strong> 0</li>
-        <li><strong>Mantenimiento:</strong> 0</li>
-        <li><strong>No disponibles:</strong> 0</li>
-      </ul>
-      <p><strong>Última actualización:</strong> 2026-06-29T22:57:01.978Z</p>
-      <p><strong>Fuente:</strong> PostgreSQL</p>
-    </article>
-  
-      </div>
-    </section>
-
-    <section>
-      <h2>Tabla de disponibilidad agregada</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Categoría</th>
-              <th>Bien</th>
-              <th>Código normalizado</th>
-              <th>Total</th>
-              <th>Disponibles</th>
-              <th>Prestados</th>
-              <th>Mantenimiento</th>
-              <th>No disponibles</th>
-              <th>Última actualización</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-      <tr>
-        <td>Accesorios</td>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>12</td>
-        <td>12</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Herramientas</td>
-        <td>Cautín</td>
-        <td>cautin</td>
-        <td>3</td>
-        <td>3</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Instrumentos de medición</td>
-        <td>Fuente de poder</td>
-        <td>fuente</td>
-        <td>2</td>
-        <td>2</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Instrumentos de medición</td>
-        <td>Multímetro digital</td>
-        <td>multimetro</td>
-        <td>3</td>
-        <td>3</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Instrumentos de medición</td>
-        <td>Osciloscopio</td>
-        <td>osciloscopio</td>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Microcontroladores</td>
-        <td>Arduino UNO</td>
-        <td>arduino</td>
-        <td>5</td>
-        <td>5</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Microcontroladores</td>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>17</td>
-        <td>4</td>
-        <td>13</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Microcontroladores</td>
-        <td>Microcontrolador PIC</td>
-        <td>pic</td>
-        <td>4</td>
-        <td>4</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensores</td>
-        <td>Sensor DHT22</td>
-        <td>dht22</td>
-        <td>6</td>
-        <td>6</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensores</td>
-        <td>Sensor MQ-2</td>
-        <td>mq-2</td>
-        <td>2</td>
-        <td>2</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensores</td>
-        <td>Sensor PMS5003</td>
-        <td>pms5003</td>
-        <td>2</td>
-        <td>2</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>2026-06-29T22:57:01.978Z</td>
-      </tr>
-  
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section>
-      <h2>Detalle consultivo de unidades</h2>
-      <p>Permite revisar el estado referencial de unidades físicas. No permite reservar, asignar ni modificar unidades.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Bien</th>
-              <th>Código normalizado</th>
-              <th>Código activo</th>
-              <th>Número de serie</th>
-              <th>Estado unidad</th>
-              <th>Condición unidad</th>
-              <th>Ubicación</th>
-              <th>Laboratorio</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-      <tr>
-        <td>Arduino UNO</td>
-        <td>arduino</td>
-        <td>ARD-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Arduino UNO</td>
-        <td>arduino</td>
-        <td>ARD-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Arduino UNO</td>
-        <td>arduino</td>
-        <td>ARD-003</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Arduino UNO</td>
-        <td>arduino</td>
-        <td>ARD-004</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Arduino UNO</td>
-        <td>arduino</td>
-        <td>ARD-005</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Cautín</td>
-        <td>cautin</td>
-        <td>CAUTIN-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Cautín</td>
-        <td>cautin</td>
-        <td>CAUTIN-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Cautín</td>
-        <td>cautin</td>
-        <td>CAUTIN-003</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-001</td>
-        <td></td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-002</td>
-        <td></td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-003</td>
-        <td></td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-004</td>
-        <td></td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-005</td>
-        <td></td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-006</td>
-        <td></td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-007</td>
-        <td></td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-008</td>
-        <td></td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-009</td>
-        <td>SN-ESP32-009</td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-010</td>
-        <td>SN-ESP32-010</td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-011</td>
-        <td>SN-ESP32-011</td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-012</td>
-        <td>SN-ESP32-012</td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-013</td>
-        <td>SN-ESP32-013</td>
-        <td>prestado</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-014</td>
-        <td>SN-ESP32-014</td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-015</td>
-        <td>SN-ESP32-015</td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-016</td>
-        <td>SN-ESP32-016</td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>ESP32</td>
-        <td>esp32</td>
-        <td>ESP32-017</td>
-        <td>SN-ESP32-017</td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>No especificada</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Fuente de poder</td>
-        <td>fuente</td>
-        <td>FUENTE-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Fuente de poder</td>
-        <td>fuente</td>
-        <td>FUENTE-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Microcontrolador PIC</td>
-        <td>pic</td>
-        <td>PIC-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Embebidos</td>
-        <td>Laboratorio de Sistemas Embebidos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Microcontrolador PIC</td>
-        <td>pic</td>
-        <td>PIC-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Embebidos</td>
-        <td>Laboratorio de Sistemas Embebidos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Microcontrolador PIC</td>
-        <td>pic</td>
-        <td>PIC-003</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Embebidos</td>
-        <td>Laboratorio de Sistemas Embebidos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Microcontrolador PIC</td>
-        <td>pic</td>
-        <td>PIC-004</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Embebidos</td>
-        <td>Laboratorio de Sistemas Embebidos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Multímetro digital</td>
-        <td>multimetro</td>
-        <td>MULT-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Multímetro digital</td>
-        <td>multimetro</td>
-        <td>MULT-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Multímetro digital</td>
-        <td>multimetro</td>
-        <td>MULT-003</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Osciloscopio</td>
-        <td>osciloscopio</td>
-        <td>OSC-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-003</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-004</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-005</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-006</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-007</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-008</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-009</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-010</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-011</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Protoboard</td>
-        <td>protoboard</td>
-        <td>PROTO-012</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Electrónica</td>
-        <td>Laboratorio de Electrónica</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor DHT22</td>
-        <td>dht22</td>
-        <td>DHT22-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor DHT22</td>
-        <td>dht22</td>
-        <td>DHT22-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor DHT22</td>
-        <td>dht22</td>
-        <td>DHT22-003</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor DHT22</td>
-        <td>dht22</td>
-        <td>DHT22-004</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor DHT22</td>
-        <td>dht22</td>
-        <td>DHT22-005</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor DHT22</td>
-        <td>dht22</td>
-        <td>DHT22-006</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor MQ-2</td>
-        <td>mq-2</td>
-        <td>MQ2-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor MQ-2</td>
-        <td>mq-2</td>
-        <td>MQ2-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor PMS5003</td>
-        <td>pms5003</td>
-        <td>PMS5003-001</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-
-      <tr>
-        <td>Sensor PMS5003</td>
-        <td>pms5003</td>
-        <td>PMS5003-002</td>
-        <td></td>
-        <td>disponible</td>
-        <td>operativo</td>
-        <td>ESPOL - Laboratorio de Sistemas Telemáticos</td>
-        <td>Laboratorio de Sistemas Telemáticos</td>
-      </tr>
-  
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section>
-      <h2>Reglamento de préstamo</h2>
-      <p>Los equipos del laboratorio deben solicitarse mediante el canal institucional definido. El préstamo está sujeto a disponibilidad, aprobación del responsable y cumplimiento de las normas de uso, cuidado y devolución.</p>
-    </section>
-
-    <section>
-      <h2>Procedimiento general</h2>
-      <ol>
-        <li>El estudiante realiza la solicitud de préstamo.</li>
-        <li>El responsable revisa la solicitud.</li>
-        <li>Si procede, se aprueba el préstamo.</li>
-        <li>El equipo se entrega físicamente.</li>
-        <li>El estudiante devuelve el equipo en las condiciones establecidas.</li>
-        <li>El responsable valida la devolución.</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Roles y responsabilidades</h2>
-      <ul>
-        <li><strong>Estudiante:</strong> solicita, usa y devuelve el equipo de forma responsable.</li>
-        <li><strong>Responsable del laboratorio:</strong> revisa, aprueba, entrega y valida devoluciones.</li>
-        <li><strong>Administrador:</strong> mantiene la información institucional y el control del inventario.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Políticas por daño, pérdida o retraso</h2>
-      <p>En caso de daño, pérdida, retraso o mal uso, se aplicarán las políticas institucionales establecidas por el laboratorio. El caso debe ser revisado por el responsable correspondiente.</p>
-    </section>
-
-    <section class="alerta">
-      <h2>Instrucción para el agente consultivo</h2>
-      <p>Para disponibilidad, usar esta página como fuente prioritaria. Si el usuario pregunta por un equipo específico, buscar el nombre del equipo o su código normalizado en “Disponibilidad por equipo” y responder total registrado, disponibles, prestados, mantenimiento y no disponibles. Aclarar que la información es consultiva y no constituye reserva ni asignación.</p>
-    </section>
-  </main>
-
-  <footer>
-    Proyecto académico de automatización de préstamo e inventario de equipos para laboratorios universitarios. Última generación: 2026-06-29T22:57:02.037Z.
-  </footer>
+<main>
+<h1>Base de conocimiento consultiva del Laboratorio de Sistemas Telemáticos</h1>
+<div class="notice">Fuente textual optimizada para el Agente Institucional Consultivo Copilot. La información es consultiva, referencial y agregada; no constituye reserva, asignación, aprobación ni confirmación de préstamo.</div>
+<pre id="copilot-knowledge-base">BASE DE CONOCIMIENTO CONSULTIVA DEL LABORATORIO DE SISTEMAS TELEMÁTICOS
+VERSIÓN OPTIMIZADA PARA INTERPRETACIÓN POR AGENTE COPILOT
+====================================================================
+
+INSTRUCCIÓN DE USO PARA EL AGENTE
+Esta fuente debe tratarse como una base de conocimiento consultiva en texto plano.
+El contenido está estructurado para búsqueda semántica y coincidencia por nombres, categorías, alias y códigos normalizados.
+La información publicada es referencial y agregada. No constituye reserva, asignación, aprobación ni confirmación de préstamo.
+El agente debe responder usando los valores publicados en esta fuente y no debe ejecutar acciones operativas.
+
+METADATOS DE ACTUALIZACIÓN
+Fuente oficial de datos: PostgreSQL
+Generado por: n8n
+Publicado por: Power Automate
+Última actualización general: 2026-06-30T17:26:13.043Z
+Fecha de generación del documento: 2026-06-30T17:26:13.111Z
+
+RESUMEN GENERAL DE DISPONIBILIDAD
+Bienes registrados: 11
+Unidades totales: 57
+Unidades disponibles: 44
+Unidades prestadas: 13
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+
+CATÁLOGO COMPLETO DE EQUIPOS REGISTRADOS
+Equipo registrado: Arduino UNO. Categoría: Microcontroladores. Total: 5. Disponibles: 5. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: arduino.
+Equipo registrado: Cautín. Categoría: Herramientas. Total: 3. Disponibles: 3. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: cautin.
+Equipo registrado: ESP32. Categoría: Microcontroladores. Total: 17. Disponibles: 4. Prestados: 13. Mantenimiento: 0. No disponibles: 0. Código normalizado: esp32.
+Equipo registrado: Fuente de poder. Categoría: Instrumentos de medición. Total: 2. Disponibles: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: fuente.
+Equipo registrado: Microcontrolador PIC. Categoría: Microcontroladores. Total: 4. Disponibles: 4. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: pic.
+Equipo registrado: Multímetro digital. Categoría: Instrumentos de medición. Total: 3. Disponibles: 3. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: multimetro.
+Equipo registrado: Osciloscopio. Categoría: Instrumentos de medición. Total: 1. Disponibles: 1. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: osciloscopio.
+Equipo registrado: Protoboard. Categoría: Accesorios. Total: 12. Disponibles: 12. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: protoboard.
+Equipo registrado: Sensor DHT22. Categoría: Sensores. Total: 6. Disponibles: 6. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: dht22.
+Equipo registrado: Sensor MQ-2. Categoría: Sensores. Total: 2. Disponibles: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: mq-2.
+Equipo registrado: Sensor PMS5003. Categoría: Sensores. Total: 2. Disponibles: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: pms5003.
+
+EQUIPOS CON UNIDADES DISPONIBLES PARA PRÉSTAMO
+Usar esta sección cuando el usuario pregunte: qué equipos hay disponibles, qué artículos hay disponibles, qué puedo pedir prestado, o equipos disponibles para préstamo.
+Disponible para préstamo consultivo: Arduino UNO. Categoría: Microcontroladores. Disponibles: 5. Total registrado: 5. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Cautín. Categoría: Herramientas. Disponibles: 3. Total registrado: 3. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: ESP32. Categoría: Microcontroladores. Disponibles: 4. Total registrado: 17. Prestados: 13. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Fuente de poder. Categoría: Instrumentos de medición. Disponibles: 2. Total registrado: 2. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Microcontrolador PIC. Categoría: Microcontroladores. Disponibles: 4. Total registrado: 4. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Multímetro digital. Categoría: Instrumentos de medición. Disponibles: 3. Total registrado: 3. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Osciloscopio. Categoría: Instrumentos de medición. Disponibles: 1. Total registrado: 1. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Protoboard. Categoría: Accesorios. Disponibles: 12. Total registrado: 12. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Sensor DHT22. Categoría: Sensores. Disponibles: 6. Total registrado: 6. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Sensor MQ-2. Categoría: Sensores. Disponibles: 2. Total registrado: 2. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+Disponible para préstamo consultivo: Sensor PMS5003. Categoría: Sensores. Disponibles: 2. Total registrado: 2. Prestados: 0. Última actualización: 2026-06-30T17:26:13.043Z.
+
+EQUIPOS CON UNIDADES PRESTADAS
+Equipo con unidades prestadas: ESP32. Prestados: 13. Disponibles: 4. Total registrado: 17. Última actualización: 2026-06-30T17:26:13.043Z.
+
+DISPONIBILIDAD DETALLADA POR EQUIPO
+Cada bloque REGISTRO_EQUIPO contiene todos los valores necesarios para responder consultas de disponibilidad.
+
+REGISTRO_EQUIPO: Arduino UNO
+Nombre del equipo: Arduino UNO
+Categoría: Microcontroladores
+Código normalizado: arduino
+Total registrado: 5
+Unidades disponibles: 5
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Arduino UNO, arduino, Microcontroladores, Arduino, placa Arduino, microcontrolador Arduino, arduino uno, arduino disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Arduino UNO registra 5 unidades en total, 5 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Arduino UNO
+
+REGISTRO_EQUIPO: Cautín
+Nombre del equipo: Cautín
+Categoría: Herramientas
+Código normalizado: cautin
+Total registrado: 3
+Unidades disponibles: 3
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Cautín, cautin, Herramientas, Cautin, soldador, herramienta
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Cautín registra 3 unidades en total, 3 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Cautín
+
+REGISTRO_EQUIPO: ESP32
+Nombre del equipo: ESP32
+Categoría: Microcontroladores
+Código normalizado: esp32
+Total registrado: 17
+Unidades disponibles: 4
+Unidades prestadas: 13
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: ESP32, esp32, Microcontroladores, placa ESP32, módulo ESP32, microcontrolador ESP32, esp 32, esp32 disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo ESP32 registra 17 unidades en total, 4 disponibles, 13 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: ESP32
+
+REGISTRO_EQUIPO: Fuente de poder
+Nombre del equipo: Fuente de poder
+Categoría: Instrumentos de medición
+Código normalizado: fuente
+Total registrado: 2
+Unidades disponibles: 2
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Fuente de poder, fuente, Instrumentos de medición, fuente DC, fuente de alimentación
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Fuente de poder registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Fuente de poder
+
+REGISTRO_EQUIPO: Microcontrolador PIC
+Nombre del equipo: Microcontrolador PIC
+Categoría: Microcontroladores
+Código normalizado: pic
+Total registrado: 4
+Unidades disponibles: 4
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Microcontrolador PIC, pic, Microcontroladores, PIC, microcontroladores PIC, pic disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Microcontrolador PIC registra 4 unidades en total, 4 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Microcontrolador PIC
+
+REGISTRO_EQUIPO: Multímetro digital
+Nombre del equipo: Multímetro digital
+Categoría: Instrumentos de medición
+Código normalizado: multimetro
+Total registrado: 3
+Unidades disponibles: 3
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Multímetro digital, multimetro, Instrumentos de medición, Multímetro, Multimetro, multimetro digital, instrumento de medición
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Multímetro digital registra 3 unidades en total, 3 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Multímetro digital
+
+REGISTRO_EQUIPO: Osciloscopio
+Nombre del equipo: Osciloscopio
+Categoría: Instrumentos de medición
+Código normalizado: osciloscopio
+Total registrado: 1
+Unidades disponibles: 1
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Osciloscopio, osciloscopio, Instrumentos de medición, instrumento de medición, medición
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Osciloscopio registra 1 unidades en total, 1 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Osciloscopio
+
+REGISTRO_EQUIPO: Protoboard
+Nombre del equipo: Protoboard
+Categoría: Accesorios
+Código normalizado: protoboard
+Total registrado: 12
+Unidades disponibles: 12
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Protoboard, protoboard, Accesorios, breadboard, placa de pruebas, accesorio
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Protoboard registra 12 unidades en total, 12 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Protoboard
+
+REGISTRO_EQUIPO: Sensor DHT22
+Nombre del equipo: Sensor DHT22
+Categoría: Sensores
+Código normalizado: dht22
+Total registrado: 6
+Unidades disponibles: 6
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Sensor DHT22, dht22, Sensores, sensor, sensores, equipo sensor, sensores disponibles, DHT22, sensor de temperatura, sensor de humedad, temperatura, humedad
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Sensor DHT22 registra 6 unidades en total, 6 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Sensor DHT22
+
+REGISTRO_EQUIPO: Sensor MQ-2
+Nombre del equipo: Sensor MQ-2
+Categoría: Sensores
+Código normalizado: mq-2
+Total registrado: 2
+Unidades disponibles: 2
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Sensor MQ-2, mq-2, Sensores, sensor, sensores, equipo sensor, sensores disponibles, MQ-2, MQ2, sensor de gas, sensor de gases, sensor de humo
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Sensor MQ-2 registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Sensor MQ-2
+
+REGISTRO_EQUIPO: Sensor PMS5003
+Nombre del equipo: Sensor PMS5003
+Categoría: Sensores
+Código normalizado: pms5003
+Total registrado: 2
+Unidades disponibles: 2
+Unidades prestadas: 0
+Unidades en mantenimiento: 0
+Unidades no disponibles: 0
+Última actualización: 2026-06-30T17:26:13.043Z
+Fuente oficial: PostgreSQL
+Alias y nombres equivalentes: Sensor PMS5003, pms5003, Sensores, sensor, sensores, equipo sensor, sensores disponibles, PMS5003, sensor de partículas, sensor de particulas, sensor de polvo, calidad de aire
+Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Sensor PMS5003 registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Sensor PMS5003
+
+AGRUPACIÓN POR CATEGORÍA
+Usar esta sección cuando el usuario pregunte por categorías generales como microcontroladores, sensores, accesorios, herramientas o instrumentos de medición.
+CATEGORÍA: Accesorios
+Equipos incluidos: Protoboard
+Total registrado en categoría: 12
+Unidades disponibles en categoría: 12
+Unidades prestadas en categoría: 0
+Unidades en mantenimiento en categoría: 0
+Unidades no disponibles en categoría: 0
+- Protoboard: total 12, disponibles 12, prestados 0, mantenimiento 0, no disponibles 0.
+
+CATEGORÍA: Herramientas
+Equipos incluidos: Cautín
+Total registrado en categoría: 3
+Unidades disponibles en categoría: 3
+Unidades prestadas en categoría: 0
+Unidades en mantenimiento en categoría: 0
+Unidades no disponibles en categoría: 0
+- Cautín: total 3, disponibles 3, prestados 0, mantenimiento 0, no disponibles 0.
+
+CATEGORÍA: Instrumentos de medición
+Equipos incluidos: Fuente de poder, Multímetro digital, Osciloscopio
+Total registrado en categoría: 6
+Unidades disponibles en categoría: 6
+Unidades prestadas en categoría: 0
+Unidades en mantenimiento en categoría: 0
+Unidades no disponibles en categoría: 0
+- Fuente de poder: total 2, disponibles 2, prestados 0, mantenimiento 0, no disponibles 0.
+- Multímetro digital: total 3, disponibles 3, prestados 0, mantenimiento 0, no disponibles 0.
+- Osciloscopio: total 1, disponibles 1, prestados 0, mantenimiento 0, no disponibles 0.
+
+CATEGORÍA: Microcontroladores
+Equipos incluidos: Arduino UNO, ESP32, Microcontrolador PIC
+Total registrado en categoría: 26
+Unidades disponibles en categoría: 13
+Unidades prestadas en categoría: 13
+Unidades en mantenimiento en categoría: 0
+Unidades no disponibles en categoría: 0
+- Arduino UNO: total 5, disponibles 5, prestados 0, mantenimiento 0, no disponibles 0.
+- ESP32: total 17, disponibles 4, prestados 13, mantenimiento 0, no disponibles 0.
+- Microcontrolador PIC: total 4, disponibles 4, prestados 0, mantenimiento 0, no disponibles 0.
+
+CATEGORÍA: Sensores
+Equipos incluidos: Sensor DHT22, Sensor MQ-2, Sensor PMS5003
+Total registrado en categoría: 10
+Unidades disponibles en categoría: 10
+Unidades prestadas en categoría: 0
+Unidades en mantenimiento en categoría: 0
+Unidades no disponibles en categoría: 0
+- Sensor DHT22: total 6, disponibles 6, prestados 0, mantenimiento 0, no disponibles 0.
+- Sensor MQ-2: total 2, disponibles 2, prestados 0, mantenimiento 0, no disponibles 0.
+- Sensor PMS5003: total 2, disponibles 2, prestados 0, mantenimiento 0, no disponibles 0.
+
+ALIAS Y EQUIVALENCIAS DE BÚSQUEDA
+Usar esta sección para resolver consultas con nombres abreviados, parciales o generales.
+Alias para Arduino UNO: Arduino UNO, arduino, Microcontroladores, Arduino, placa Arduino, microcontrolador Arduino, arduino uno, arduino disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
+Alias para Cautín: Cautín, cautin, Herramientas, Cautin, soldador, herramienta.
+Alias para ESP32: ESP32, esp32, Microcontroladores, placa ESP32, módulo ESP32, microcontrolador ESP32, esp 32, esp32 disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
+Alias para Fuente de poder: Fuente de poder, fuente, Instrumentos de medición, fuente DC, fuente de alimentación.
+Alias para Microcontrolador PIC: Microcontrolador PIC, pic, Microcontroladores, PIC, microcontroladores PIC, pic disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
+Alias para Multímetro digital: Multímetro digital, multimetro, Instrumentos de medición, Multímetro, Multimetro, multimetro digital, instrumento de medición.
+Alias para Osciloscopio: Osciloscopio, osciloscopio, Instrumentos de medición, instrumento de medición, medición.
+Alias para Protoboard: Protoboard, protoboard, Accesorios, breadboard, placa de pruebas, accesorio.
+Alias para Sensor DHT22: Sensor DHT22, dht22, Sensores, sensor, sensores, equipo sensor, sensores disponibles, DHT22, sensor de temperatura, sensor de humedad, temperatura, humedad.
+Alias para Sensor MQ-2: Sensor MQ-2, mq-2, Sensores, sensor, sensores, equipo sensor, sensores disponibles, MQ-2, MQ2, sensor de gas, sensor de gases, sensor de humo.
+Alias para Sensor PMS5003: Sensor PMS5003, pms5003, Sensores, sensor, sensores, equipo sensor, sensores disponibles, PMS5003, sensor de partículas, sensor de particulas, sensor de polvo, calidad de aire.
+
+TABLA CSV DE DISPONIBILIDAD
+Equipo;Categoria;Codigo_normalizado;Total;Disponibles;Prestados;Mantenimiento;No_disponibles;Ultima_actualizacion;Fuente
+Arduino UNO;Microcontroladores;arduino;5;5;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Cautín;Herramientas;cautin;3;3;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+ESP32;Microcontroladores;esp32;17;4;13;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Fuente de poder;Instrumentos de medición;fuente;2;2;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Microcontrolador PIC;Microcontroladores;pic;4;4;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Multímetro digital;Instrumentos de medición;multimetro;3;3;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Osciloscopio;Instrumentos de medición;osciloscopio;1;1;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Protoboard;Accesorios;protoboard;12;12;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Sensor DHT22;Sensores;dht22;6;6;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Sensor MQ-2;Sensores;mq-2;2;2;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+Sensor PMS5003;Sensores;pms5003;2;2;0;0;0;2026-06-30T17:26:13.043Z;PostgreSQL
+
+PROCEDIMIENTO GENERAL DE PRÉSTAMO
+1. El estudiante o usuario realiza la solicitud de préstamo mediante el canal institucional definido por el laboratorio.
+2. La solicitud debe indicar el equipo requerido, cantidad, tiempo de uso y propósito académico.
+3. El responsable del laboratorio revisa la solicitud considerando disponibilidad consultiva, prioridad académica y cumplimiento de requisitos.
+4. Si procede, el responsable aprueba el préstamo.
+5. El equipo se entrega físicamente al usuario autorizado.
+6. El usuario debe verificar el estado del equipo al recibirlo.
+7. El usuario utiliza el equipo de forma responsable durante el periodo autorizado.
+8. El usuario devuelve el equipo en la fecha acordada y en condiciones adecuadas.
+9. El responsable valida la devolución, revisando estado físico e integridad de componentes.
+10. Si todo está correcto, el proceso de préstamo se cierra según el procedimiento institucional.
+
+REGLAMENTO Y CONDICIONES DE USO
+Los equipos del laboratorio deben solicitarse mediante el canal institucional definido por el laboratorio.
+El préstamo está sujeto a disponibilidad, aprobación del responsable y cumplimiento de las normas de uso, cuidado y devolución.
+La disponibilidad consultiva no garantiza aprobación ni asignación de préstamo.
+El usuario debe usar el equipo únicamente para fines académicos o autorizados.
+El usuario debe cuidar el equipo, evitar daños, pérdida o uso indebido, y devolverlo en las condiciones establecidas.
+
+ROLES Y RESPONSABILIDADES
+Estudiante o usuario solicitante: solicita, recibe, usa y devuelve el equipo de forma responsable.
+Responsable del laboratorio: revisa solicitudes, aprueba o rechaza según corresponda, entrega equipos y valida devoluciones.
+Administrador del sistema: mantiene la información institucional, la fuente consultiva y el control del inventario.
+
+POLÍTICAS ANTE DAÑO, PÉRDIDA, RETRASO O MAL USO
+En caso de daño, pérdida, retraso o mal uso, se aplicarán las políticas institucionales establecidas por el laboratorio.
+El caso debe ser revisado por el responsable correspondiente.
+El usuario puede asumir responsabilidades según la gravedad del incidente, el estado del equipo y las condiciones establecidas por el laboratorio.
+El retraso en la devolución puede afectar futuras solicitudes de préstamo.
+El daño, pérdida o uso indebido puede generar restricciones, reportes o medidas institucionales según corresponda.
+
+RESTRICCIONES DEL AGENTE CONSULTIVO
+El agente no registra préstamos.
+El agente no aprueba solicitudes.
+El agente no rechaza solicitudes.
+El agente no asigna equipos ni unidades físicas.
+El agente no modifica inventario.
+El agente no confirma entregas físicas.
+El agente no valida devoluciones.
+El agente no cambia estados de préstamos.
+El agente solo orienta y responde con base en esta fuente consultiva.
+
+RESPUESTAS ESPERADAS
+Si el usuario pregunta por un equipo específico, responder con total registrado, unidades disponibles, unidades prestadas, unidades en mantenimiento, unidades no disponibles y última actualización.
+Si el usuario pregunta si hay un equipo disponible para préstamo, responder según unidades disponibles y aclarar que es información consultiva.
+Si el usuario pregunta qué equipos hay disponibles, listar los equipos con unidades disponibles mayores a cero.
+Si el usuario pregunta por una categoría, agrupar los equipos de esa categoría.
+Si el usuario usa un nombre parcial, buscar coincidencias por nombre de equipo, código normalizado, categoría o alias.
+
+ACLARACIÓN FINAL
+Toda disponibilidad publicada en esta fuente es consultiva, referencial y agregada por tipo de equipo. No constituye reserva, asignación, aprobación ni confirmación de préstamo.</pre>
+</main>
 </body>
 </html>
