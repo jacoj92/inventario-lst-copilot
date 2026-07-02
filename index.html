@@ -4,9 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Base de conocimiento consultiva del Laboratorio de Sistemas Telemáticos</title>
-  <meta name="description" content="Base de conocimiento consultiva optimizada para Copilot: disponibilidad agregada de equipos, reglamento, procedimiento, roles y políticas del Laboratorio de Sistemas Telemáticos.">
-  <meta name="copilot-purpose" content="fuente consultiva en texto plano para recuperación semántica">
-  <meta name="source-system" content="PostgreSQL actualizado por n8n y publicado por Power Automate">
+  <meta name="description" content="Fuente consultiva del Laboratorio de Sistemas Telemáticos. La fuente prioritaria para Copilot es copilot-kb.txt.">
   <style>
     body { font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #111827; margin: 0; padding: 24px; line-height: 1.6; }
     main { max-width: 1180px; margin: 0 auto; }
@@ -18,362 +16,307 @@
 <body>
 <main>
 <h1>Base de conocimiento consultiva del Laboratorio de Sistemas Telemáticos</h1>
-<div class="notice">Fuente textual optimizada para el Agente Institucional Consultivo Copilot. La información es consultiva, referencial y agregada; no constituye reserva, asignación, aprobación ni confirmación de préstamo.</div>
-<pre id="copilot-knowledge-base">BASE DE CONOCIMIENTO CONSULTIVA DEL LABORATORIO DE SISTEMAS TELEMÁTICOS
-VERSIÓN OPTIMIZADA PARA INTERPRETACIÓN POR AGENTE COPILOT
-====================================================================
+<div class="notice">La fuente prioritaria para Copilot es el archivo público copilot-kb.txt. Esta página HTML se mantiene como respaldo visual.</div>
+<pre id="copilot-knowledge-base">INICIO_FUENTE_CONSULTIVA_LST
+TITULO_FUENTE: Base de conocimiento consultiva del Laboratorio de Sistemas Telemáticos
+TIPO_FUENTE: Inventario consultivo agregado para agente Copilot
+FUENTE_OFICIAL_DATOS: PostgreSQL
+GENERADO_POR: n8n
+PUBLICADO_POR: Power Automate
+ULTIMA_ACTUALIZACION_GENERAL: 2026-07-02T03:43:44.464Z
+ALCANCE: Información consultiva, referencial y agregada. No constituye reserva, asignación, aprobación ni confirmación de préstamo.
+REGLA_IMPORTANTE: El agente debe usar únicamente los valores publicados dentro de los bloques REGISTRO_EQUIPO, CATEGORIA, EQUIPOS_DISPONIBLES, EQUIPOS_CON_UNIDADES_PRESTADAS y NORMATIVA_PRESTAMO de esta fuente.
+FIN_ENCABEZADO
 
-INSTRUCCIÓN DE USO PARA EL AGENTE
-Esta fuente debe tratarse como una base de conocimiento consultiva en texto plano.
-El contenido está estructurado para búsqueda semántica y coincidencia por nombres, categorías, alias y códigos normalizados.
-La información publicada es referencial y agregada. No constituye reserva, asignación, aprobación ni confirmación de préstamo.
-El agente debe responder usando los valores publicados en esta fuente y no debe ejecutar acciones operativas.
+RESUMEN_GENERAL
+BIENES_REGISTRADOS: 11
+UNIDADES_TOTALES: 57
+UNIDADES_DISPONIBLES: 44
+UNIDADES_PRESTADAS: 13
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+FIN_RESUMEN_GENERAL
 
-METADATOS DE ACTUALIZACIÓN
-Fuente oficial de datos: PostgreSQL
-Generado por: n8n
-Publicado por: Power Automate
-Última actualización general: 2026-06-30T17:27:59.356Z
-Fecha de generación del documento: 2026-06-30T17:27:59.378Z
+CATEGORIAS
+CATEGORIA: Accesorios
+EQUIPOS_EN_CATEGORIA: Protoboard
+ALIAS_CATEGORIA: accesorios, Accesorios, equipos accesorios, accesorios disponibles
+TOTAL_REGISTRADO_CATEGORIA: 12
+UNIDADES_DISPONIBLES_CATEGORIA: 12
+UNIDADES_PRESTADAS_CATEGORIA: 0
+UNIDADES_MANTENIMIENTO_CATEGORIA: 0
+UNIDADES_NO_DISPONIBLES_CATEGORIA: 0
+RESPUESTA_DIRECTA_CATEGORIA: Según la fuente consultiva del laboratorio, la categoría Accesorios incluye Protoboard. En conjunto registra 12 unidades, 12 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles.
+FIN_CATEGORIA: Accesorios
 
-RESUMEN GENERAL DE DISPONIBILIDAD
-Bienes registrados: 11
-Unidades totales: 57
-Unidades disponibles: 43
-Unidades prestadas: 14
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
+CATEGORIA: Herramientas
+EQUIPOS_EN_CATEGORIA: Cautín
+ALIAS_CATEGORIA: herramientas, Herramientas, equipos herramientas, herramientas disponibles
+TOTAL_REGISTRADO_CATEGORIA: 3
+UNIDADES_DISPONIBLES_CATEGORIA: 3
+UNIDADES_PRESTADAS_CATEGORIA: 0
+UNIDADES_MANTENIMIENTO_CATEGORIA: 0
+UNIDADES_NO_DISPONIBLES_CATEGORIA: 0
+RESPUESTA_DIRECTA_CATEGORIA: Según la fuente consultiva del laboratorio, la categoría Herramientas incluye Cautín. En conjunto registra 3 unidades, 3 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles.
+FIN_CATEGORIA: Herramientas
 
-CATÁLOGO COMPLETO DE EQUIPOS REGISTRADOS
-Equipo registrado: Arduino UNO. Categoría: Microcontroladores. Total: 5. Disponibles: 5. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: arduino.
-Equipo registrado: Cautín. Categoría: Herramientas. Total: 3. Disponibles: 3. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: cautin.
-Equipo registrado: ESP32. Categoría: Microcontroladores. Total: 17. Disponibles: 3. Prestados: 14. Mantenimiento: 0. No disponibles: 0. Código normalizado: esp32.
-Equipo registrado: Fuente de poder. Categoría: Instrumentos de medición. Total: 2. Disponibles: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: fuente.
-Equipo registrado: Microcontrolador PIC. Categoría: Microcontroladores. Total: 4. Disponibles: 4. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: pic.
-Equipo registrado: Multímetro digital. Categoría: Instrumentos de medición. Total: 3. Disponibles: 3. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: multimetro.
-Equipo registrado: Osciloscopio. Categoría: Instrumentos de medición. Total: 1. Disponibles: 1. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: osciloscopio.
-Equipo registrado: Protoboard. Categoría: Accesorios. Total: 12. Disponibles: 12. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: protoboard.
-Equipo registrado: Sensor DHT22. Categoría: Sensores. Total: 6. Disponibles: 6. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: dht22.
-Equipo registrado: Sensor MQ-2. Categoría: Sensores. Total: 2. Disponibles: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: mq-2.
-Equipo registrado: Sensor PMS5003. Categoría: Sensores. Total: 2. Disponibles: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0. Código normalizado: pms5003.
+CATEGORIA: Instrumentos de medición
+EQUIPOS_EN_CATEGORIA: Fuente de poder, Multímetro digital, Osciloscopio
+ALIAS_CATEGORIA: instrumentos de medicion, Instrumentos de medición, equipos instrumentos de medicion, instrumentos de medicion disponibles
+TOTAL_REGISTRADO_CATEGORIA: 6
+UNIDADES_DISPONIBLES_CATEGORIA: 6
+UNIDADES_PRESTADAS_CATEGORIA: 0
+UNIDADES_MANTENIMIENTO_CATEGORIA: 0
+UNIDADES_NO_DISPONIBLES_CATEGORIA: 0
+RESPUESTA_DIRECTA_CATEGORIA: Según la fuente consultiva del laboratorio, la categoría Instrumentos de medición incluye Fuente de poder, Multímetro digital, Osciloscopio. En conjunto registra 6 unidades, 6 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles.
+FIN_CATEGORIA: Instrumentos de medición
 
-EQUIPOS CON UNIDADES DISPONIBLES PARA PRÉSTAMO
-Usar esta sección cuando el usuario pregunte: qué equipos hay disponibles, qué artículos hay disponibles, qué puedo pedir prestado, o equipos disponibles para préstamo.
-Disponible para préstamo consultivo: Arduino UNO. Categoría: Microcontroladores. Disponibles: 5. Total registrado: 5. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Cautín. Categoría: Herramientas. Disponibles: 3. Total registrado: 3. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: ESP32. Categoría: Microcontroladores. Disponibles: 3. Total registrado: 17. Prestados: 14. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Fuente de poder. Categoría: Instrumentos de medición. Disponibles: 2. Total registrado: 2. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Microcontrolador PIC. Categoría: Microcontroladores. Disponibles: 4. Total registrado: 4. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Multímetro digital. Categoría: Instrumentos de medición. Disponibles: 3. Total registrado: 3. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Osciloscopio. Categoría: Instrumentos de medición. Disponibles: 1. Total registrado: 1. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Protoboard. Categoría: Accesorios. Disponibles: 12. Total registrado: 12. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Sensor DHT22. Categoría: Sensores. Disponibles: 6. Total registrado: 6. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Sensor MQ-2. Categoría: Sensores. Disponibles: 2. Total registrado: 2. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
-Disponible para préstamo consultivo: Sensor PMS5003. Categoría: Sensores. Disponibles: 2. Total registrado: 2. Prestados: 0. Última actualización: 2026-06-30T17:27:59.356Z.
+CATEGORIA: Microcontroladores
+EQUIPOS_EN_CATEGORIA: Arduino UNO, ESP32, Microcontrolador PIC
+ALIAS_CATEGORIA: microcontroladores, Microcontroladores, equipos microcontroladores, microcontroladores disponibles
+TOTAL_REGISTRADO_CATEGORIA: 26
+UNIDADES_DISPONIBLES_CATEGORIA: 13
+UNIDADES_PRESTADAS_CATEGORIA: 13
+UNIDADES_MANTENIMIENTO_CATEGORIA: 0
+UNIDADES_NO_DISPONIBLES_CATEGORIA: 0
+RESPUESTA_DIRECTA_CATEGORIA: Según la fuente consultiva del laboratorio, la categoría Microcontroladores incluye Arduino UNO, ESP32, Microcontrolador PIC. En conjunto registra 26 unidades, 13 disponibles, 13 prestadas, 0 en mantenimiento y 0 no disponibles.
+FIN_CATEGORIA: Microcontroladores
 
-EQUIPOS CON UNIDADES PRESTADAS
-Equipo con unidades prestadas: ESP32. Prestados: 14. Disponibles: 3. Total registrado: 17. Última actualización: 2026-06-30T17:27:59.356Z.
+CATEGORIA: Sensores
+EQUIPOS_EN_CATEGORIA: Sensor DHT22, Sensor MQ-2, Sensor PMS5003
+ALIAS_CATEGORIA: sensores, Sensores, equipos sensores, sensores disponibles
+TOTAL_REGISTRADO_CATEGORIA: 10
+UNIDADES_DISPONIBLES_CATEGORIA: 10
+UNIDADES_PRESTADAS_CATEGORIA: 0
+UNIDADES_MANTENIMIENTO_CATEGORIA: 0
+UNIDADES_NO_DISPONIBLES_CATEGORIA: 0
+RESPUESTA_DIRECTA_CATEGORIA: Según la fuente consultiva del laboratorio, la categoría Sensores incluye Sensor DHT22, Sensor MQ-2, Sensor PMS5003. En conjunto registra 10 unidades, 10 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles.
+FIN_CATEGORIA: Sensores
 
-DISPONIBILIDAD DETALLADA POR EQUIPO
-Cada bloque REGISTRO_EQUIPO contiene todos los valores necesarios para responder consultas de disponibilidad.
+FIN_CATEGORIAS
 
-REGISTRO_EQUIPO: Arduino UNO
-Nombre del equipo: Arduino UNO
-Categoría: Microcontroladores
-Código normalizado: arduino
-Total registrado: 5
-Unidades disponibles: 5
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Arduino UNO, arduino, Microcontroladores, Arduino, placa Arduino, microcontrolador Arduino, arduino uno, arduino disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Arduino UNO registra 5 unidades en total, 5 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
-FIN_REGISTRO_EQUIPO: Arduino UNO
+REGISTROS_EQUIPO
+REGISTRO_EQUIPO: Protoboard
+NOMBRE_EQUIPO: Protoboard
+CATEGORIA: Accesorios
+CODIGO_NORMALIZADO: protoboard
+TOTAL_REGISTRADO: 12
+UNIDADES_DISPONIBLES: 12
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Protoboard, protoboard, Accesorios, breadboard, placa de pruebas, accesorio
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Protoboard registra 12 unidades en total, 12 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Protoboard
 
 REGISTRO_EQUIPO: Cautín
-Nombre del equipo: Cautín
-Categoría: Herramientas
-Código normalizado: cautin
-Total registrado: 3
-Unidades disponibles: 3
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Cautín, cautin, Herramientas, Cautin, soldador, herramienta
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Cautín registra 3 unidades en total, 3 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+NOMBRE_EQUIPO: Cautín
+CATEGORIA: Herramientas
+CODIGO_NORMALIZADO: cautin
+TOTAL_REGISTRADO: 3
+UNIDADES_DISPONIBLES: 3
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Cautín, cautin, Herramientas, Cautin, soldador, herramienta
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Cautín registra 3 unidades en total, 3 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
 FIN_REGISTRO_EQUIPO: Cautín
 
-REGISTRO_EQUIPO: ESP32
-Nombre del equipo: ESP32
-Categoría: Microcontroladores
-Código normalizado: esp32
-Total registrado: 17
-Unidades disponibles: 3
-Unidades prestadas: 14
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: ESP32, esp32, Microcontroladores, placa ESP32, módulo ESP32, microcontrolador ESP32, esp 32, esp32 disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo ESP32 registra 17 unidades en total, 3 disponibles, 14 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
-FIN_REGISTRO_EQUIPO: ESP32
-
 REGISTRO_EQUIPO: Fuente de poder
-Nombre del equipo: Fuente de poder
-Categoría: Instrumentos de medición
-Código normalizado: fuente
-Total registrado: 2
-Unidades disponibles: 2
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Fuente de poder, fuente, Instrumentos de medición, fuente DC, fuente de alimentación
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Fuente de poder registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+NOMBRE_EQUIPO: Fuente de poder
+CATEGORIA: Instrumentos de medición
+CODIGO_NORMALIZADO: fuente
+TOTAL_REGISTRADO: 2
+UNIDADES_DISPONIBLES: 2
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Fuente de poder, fuente, Instrumentos de medición, fuente DC, fuente de alimentación
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Fuente de poder registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
 FIN_REGISTRO_EQUIPO: Fuente de poder
 
-REGISTRO_EQUIPO: Microcontrolador PIC
-Nombre del equipo: Microcontrolador PIC
-Categoría: Microcontroladores
-Código normalizado: pic
-Total registrado: 4
-Unidades disponibles: 4
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Microcontrolador PIC, pic, Microcontroladores, PIC, microcontroladores PIC, pic disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Microcontrolador PIC registra 4 unidades en total, 4 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
-FIN_REGISTRO_EQUIPO: Microcontrolador PIC
-
 REGISTRO_EQUIPO: Multímetro digital
-Nombre del equipo: Multímetro digital
-Categoría: Instrumentos de medición
-Código normalizado: multimetro
-Total registrado: 3
-Unidades disponibles: 3
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Multímetro digital, multimetro, Instrumentos de medición, Multímetro, Multimetro, multimetro digital, instrumento de medición
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Multímetro digital registra 3 unidades en total, 3 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+NOMBRE_EQUIPO: Multímetro digital
+CATEGORIA: Instrumentos de medición
+CODIGO_NORMALIZADO: multimetro
+TOTAL_REGISTRADO: 3
+UNIDADES_DISPONIBLES: 3
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Multímetro digital, multimetro, Instrumentos de medición, Multímetro, Multimetro, multimetro digital, instrumento de medición
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Multímetro digital registra 3 unidades en total, 3 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
 FIN_REGISTRO_EQUIPO: Multímetro digital
 
 REGISTRO_EQUIPO: Osciloscopio
-Nombre del equipo: Osciloscopio
-Categoría: Instrumentos de medición
-Código normalizado: osciloscopio
-Total registrado: 1
-Unidades disponibles: 1
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Osciloscopio, osciloscopio, Instrumentos de medición, instrumento de medición, medición
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Osciloscopio registra 1 unidades en total, 1 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+NOMBRE_EQUIPO: Osciloscopio
+CATEGORIA: Instrumentos de medición
+CODIGO_NORMALIZADO: osciloscopio
+TOTAL_REGISTRADO: 1
+UNIDADES_DISPONIBLES: 1
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Osciloscopio, osciloscopio, Instrumentos de medición, instrumento de medición, medición
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Osciloscopio registra 1 unidades en total, 1 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
 FIN_REGISTRO_EQUIPO: Osciloscopio
 
-REGISTRO_EQUIPO: Protoboard
-Nombre del equipo: Protoboard
-Categoría: Accesorios
-Código normalizado: protoboard
-Total registrado: 12
-Unidades disponibles: 12
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Protoboard, protoboard, Accesorios, breadboard, placa de pruebas, accesorio
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Protoboard registra 12 unidades en total, 12 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
-FIN_REGISTRO_EQUIPO: Protoboard
+REGISTRO_EQUIPO: Arduino UNO
+NOMBRE_EQUIPO: Arduino UNO
+CATEGORIA: Microcontroladores
+CODIGO_NORMALIZADO: arduino
+TOTAL_REGISTRADO: 5
+UNIDADES_DISPONIBLES: 5
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Arduino UNO, arduino, Microcontroladores, Arduino, placa Arduino, microcontrolador Arduino, arduino uno, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Arduino UNO registra 5 unidades en total, 5 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Arduino UNO
+
+REGISTRO_EQUIPO: ESP32
+NOMBRE_EQUIPO: ESP32
+CATEGORIA: Microcontroladores
+CODIGO_NORMALIZADO: esp32
+TOTAL_REGISTRADO: 17
+UNIDADES_DISPONIBLES: 4
+UNIDADES_PRESTADAS: 13
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: ESP32, esp32, Microcontroladores, placa ESP32, módulo ESP32, modulo ESP32, microcontrolador ESP32, esp 32, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo ESP32 registra 17 unidades en total, 4 disponibles, 13 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: ESP32
+
+REGISTRO_EQUIPO: Microcontrolador PIC
+NOMBRE_EQUIPO: Microcontrolador PIC
+CATEGORIA: Microcontroladores
+CODIGO_NORMALIZADO: pic
+TOTAL_REGISTRADO: 4
+UNIDADES_DISPONIBLES: 4
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Microcontrolador PIC, pic, Microcontroladores, PIC, microcontroladores PIC, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Microcontrolador PIC registra 4 unidades en total, 4 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+FIN_REGISTRO_EQUIPO: Microcontrolador PIC
 
 REGISTRO_EQUIPO: Sensor DHT22
-Nombre del equipo: Sensor DHT22
-Categoría: Sensores
-Código normalizado: dht22
-Total registrado: 6
-Unidades disponibles: 6
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Sensor DHT22, dht22, Sensores, sensor, sensores, equipo sensor, sensores disponibles, DHT22, sensor de temperatura, sensor de humedad, temperatura, humedad
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Sensor DHT22 registra 6 unidades en total, 6 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+NOMBRE_EQUIPO: Sensor DHT22
+CATEGORIA: Sensores
+CODIGO_NORMALIZADO: dht22
+TOTAL_REGISTRADO: 6
+UNIDADES_DISPONIBLES: 6
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Sensor DHT22, dht22, Sensores, sensor, sensores, equipo sensor, sensores disponibles, DHT22, sensor de temperatura, sensor de humedad, temperatura, humedad
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Sensor DHT22 registra 6 unidades en total, 6 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
 FIN_REGISTRO_EQUIPO: Sensor DHT22
 
 REGISTRO_EQUIPO: Sensor MQ-2
-Nombre del equipo: Sensor MQ-2
-Categoría: Sensores
-Código normalizado: mq-2
-Total registrado: 2
-Unidades disponibles: 2
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Sensor MQ-2, mq-2, Sensores, sensor, sensores, equipo sensor, sensores disponibles, MQ-2, MQ2, sensor de gas, sensor de gases, sensor de humo
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Sensor MQ-2 registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+NOMBRE_EQUIPO: Sensor MQ-2
+CATEGORIA: Sensores
+CODIGO_NORMALIZADO: mq-2
+TOTAL_REGISTRADO: 2
+UNIDADES_DISPONIBLES: 2
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Sensor MQ-2, mq-2, Sensores, sensor, sensores, equipo sensor, sensores disponibles, MQ-2, MQ2, sensor de gas, sensor de gases, sensor de humo
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Sensor MQ-2 registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
 FIN_REGISTRO_EQUIPO: Sensor MQ-2
 
 REGISTRO_EQUIPO: Sensor PMS5003
-Nombre del equipo: Sensor PMS5003
-Categoría: Sensores
-Código normalizado: pms5003
-Total registrado: 2
-Unidades disponibles: 2
-Unidades prestadas: 0
-Unidades en mantenimiento: 0
-Unidades no disponibles: 0
-Última actualización: 2026-06-30T17:27:59.356Z
-Fuente oficial: PostgreSQL
-Alias y nombres equivalentes: Sensor PMS5003, pms5003, Sensores, sensor, sensores, equipo sensor, sensores disponibles, PMS5003, sensor de partículas, sensor de particulas, sensor de polvo, calidad de aire
-Respuesta directa recomendada: Según la fuente consultiva del laboratorio, el equipo Sensor PMS5003 registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
+NOMBRE_EQUIPO: Sensor PMS5003
+CATEGORIA: Sensores
+CODIGO_NORMALIZADO: pms5003
+TOTAL_REGISTRADO: 2
+UNIDADES_DISPONIBLES: 2
+UNIDADES_PRESTADAS: 0
+UNIDADES_MANTENIMIENTO: 0
+UNIDADES_NO_DISPONIBLES: 0
+ULTIMA_ACTUALIZACION: 2026-07-02T03:43:44.464Z
+FUENTE_OFICIAL: PostgreSQL
+ALIAS: Sensor PMS5003, pms5003, Sensores, sensor, sensores, equipo sensor, sensores disponibles, PMS5003, sensor de partículas, sensor de particulas, sensor de polvo, calidad de aire
+RESPUESTA_DIRECTA_RECOMENDADA: Según la fuente consultiva del laboratorio, el equipo Sensor PMS5003 registra 2 unidades en total, 2 disponibles, 0 prestadas, 0 en mantenimiento y 0 no disponibles. Esta información es consultiva y no constituye una reserva ni asignación de equipo.
 FIN_REGISTRO_EQUIPO: Sensor PMS5003
 
-AGRUPACIÓN POR CATEGORÍA
-Usar esta sección cuando el usuario pregunte por categorías generales como microcontroladores, sensores, accesorios, herramientas o instrumentos de medición.
-CATEGORÍA: Accesorios
-Equipos incluidos: Protoboard
-Total registrado en categoría: 12
-Unidades disponibles en categoría: 12
-Unidades prestadas en categoría: 0
-Unidades en mantenimiento en categoría: 0
-Unidades no disponibles en categoría: 0
-- Protoboard: total 12, disponibles 12, prestados 0, mantenimiento 0, no disponibles 0.
+FIN_REGISTROS_EQUIPO
 
-CATEGORÍA: Herramientas
-Equipos incluidos: Cautín
-Total registrado en categoría: 3
-Unidades disponibles en categoría: 3
-Unidades prestadas en categoría: 0
-Unidades en mantenimiento en categoría: 0
-Unidades no disponibles en categoría: 0
-- Cautín: total 3, disponibles 3, prestados 0, mantenimiento 0, no disponibles 0.
+EQUIPOS_DISPONIBLES
+Disponible para préstamo consultivo: Protoboard. Categoría: Accesorios. Disponibles: 12. Total registrado: 12. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Cautín. Categoría: Herramientas. Disponibles: 3. Total registrado: 3. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Fuente de poder. Categoría: Instrumentos de medición. Disponibles: 2. Total registrado: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Multímetro digital. Categoría: Instrumentos de medición. Disponibles: 3. Total registrado: 3. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Osciloscopio. Categoría: Instrumentos de medición. Disponibles: 1. Total registrado: 1. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Arduino UNO. Categoría: Microcontroladores. Disponibles: 5. Total registrado: 5. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: ESP32. Categoría: Microcontroladores. Disponibles: 4. Total registrado: 17. Prestados: 13. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Microcontrolador PIC. Categoría: Microcontroladores. Disponibles: 4. Total registrado: 4. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Sensor DHT22. Categoría: Sensores. Disponibles: 6. Total registrado: 6. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Sensor MQ-2. Categoría: Sensores. Disponibles: 2. Total registrado: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+Disponible para préstamo consultivo: Sensor PMS5003. Categoría: Sensores. Disponibles: 2. Total registrado: 2. Prestados: 0. Mantenimiento: 0. No disponibles: 0.
+FIN_EQUIPOS_DISPONIBLES
 
-CATEGORÍA: Instrumentos de medición
-Equipos incluidos: Fuente de poder, Multímetro digital, Osciloscopio
-Total registrado en categoría: 6
-Unidades disponibles en categoría: 6
-Unidades prestadas en categoría: 0
-Unidades en mantenimiento en categoría: 0
-Unidades no disponibles en categoría: 0
-- Fuente de poder: total 2, disponibles 2, prestados 0, mantenimiento 0, no disponibles 0.
-- Multímetro digital: total 3, disponibles 3, prestados 0, mantenimiento 0, no disponibles 0.
-- Osciloscopio: total 1, disponibles 1, prestados 0, mantenimiento 0, no disponibles 0.
+EQUIPOS_CON_UNIDADES_PRESTADAS
+Equipo con unidades prestadas: ESP32. Prestados: 13. Disponibles: 4. Total registrado: 17. Mantenimiento: 0. No disponibles: 0.
+FIN_EQUIPOS_CON_UNIDADES_PRESTADAS
 
-CATEGORÍA: Microcontroladores
-Equipos incluidos: Arduino UNO, ESP32, Microcontrolador PIC
-Total registrado en categoría: 26
-Unidades disponibles en categoría: 12
-Unidades prestadas en categoría: 14
-Unidades en mantenimiento en categoría: 0
-Unidades no disponibles en categoría: 0
-- Arduino UNO: total 5, disponibles 5, prestados 0, mantenimiento 0, no disponibles 0.
-- ESP32: total 17, disponibles 3, prestados 14, mantenimiento 0, no disponibles 0.
-- Microcontrolador PIC: total 4, disponibles 4, prestados 0, mantenimiento 0, no disponibles 0.
+ALIAS_EQUIPOS
+ALIAS_EQUIPO: Protoboard. ALIAS: Protoboard, protoboard, Accesorios, breadboard, placa de pruebas, accesorio.
+ALIAS_EQUIPO: Cautín. ALIAS: Cautín, cautin, Herramientas, Cautin, soldador, herramienta.
+ALIAS_EQUIPO: Fuente de poder. ALIAS: Fuente de poder, fuente, Instrumentos de medición, fuente DC, fuente de alimentación.
+ALIAS_EQUIPO: Multímetro digital. ALIAS: Multímetro digital, multimetro, Instrumentos de medición, Multímetro, Multimetro, multimetro digital, instrumento de medición.
+ALIAS_EQUIPO: Osciloscopio. ALIAS: Osciloscopio, osciloscopio, Instrumentos de medición, instrumento de medición, medición.
+ALIAS_EQUIPO: Arduino UNO. ALIAS: Arduino UNO, arduino, Microcontroladores, Arduino, placa Arduino, microcontrolador Arduino, arduino uno, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
+ALIAS_EQUIPO: ESP32. ALIAS: ESP32, esp32, Microcontroladores, placa ESP32, módulo ESP32, modulo ESP32, microcontrolador ESP32, esp 32, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
+ALIAS_EQUIPO: Microcontrolador PIC. ALIAS: Microcontrolador PIC, pic, Microcontroladores, PIC, microcontroladores PIC, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
+ALIAS_EQUIPO: Sensor DHT22. ALIAS: Sensor DHT22, dht22, Sensores, sensor, sensores, equipo sensor, sensores disponibles, DHT22, sensor de temperatura, sensor de humedad, temperatura, humedad.
+ALIAS_EQUIPO: Sensor MQ-2. ALIAS: Sensor MQ-2, mq-2, Sensores, sensor, sensores, equipo sensor, sensores disponibles, MQ-2, MQ2, sensor de gas, sensor de gases, sensor de humo.
+ALIAS_EQUIPO: Sensor PMS5003. ALIAS: Sensor PMS5003, pms5003, Sensores, sensor, sensores, equipo sensor, sensores disponibles, PMS5003, sensor de partículas, sensor de particulas, sensor de polvo, calidad de aire.
+FIN_ALIAS_EQUIPOS
 
-CATEGORÍA: Sensores
-Equipos incluidos: Sensor DHT22, Sensor MQ-2, Sensor PMS5003
-Total registrado en categoría: 10
-Unidades disponibles en categoría: 10
-Unidades prestadas en categoría: 0
-Unidades en mantenimiento en categoría: 0
-Unidades no disponibles en categoría: 0
-- Sensor DHT22: total 6, disponibles 6, prestados 0, mantenimiento 0, no disponibles 0.
-- Sensor MQ-2: total 2, disponibles 2, prestados 0, mantenimiento 0, no disponibles 0.
-- Sensor PMS5003: total 2, disponibles 2, prestados 0, mantenimiento 0, no disponibles 0.
+NORMATIVA_PRESTAMO
+PROCEDIMIENTO_SOLICITUD: El usuario solicita el préstamo por el canal institucional definido por el laboratorio e indica equipo, cantidad, motivo académico y tiempo estimado de uso.
+PROCEDIMIENTO_APROBACION: El responsable del laboratorio revisa disponibilidad, pertinencia académica y cumplimiento de requisitos antes de aprobar o rechazar la solicitud.
+PROCEDIMIENTO_ENTREGA: La entrega física la realiza el responsable o encargado autorizado. La asignación real de una unidad ocurre solo durante la entrega registrada en el sistema operativo.
+PROCEDIMIENTO_DEVOLUCION: El usuario solicita la devolución y entrega físicamente el equipo al responsable. La devolución queda pendiente hasta validación física.
+PROCEDIMIENTO_VALIDACION_DEVOLUCION: El responsable revisa estado físico, integridad y componentes. Si todo está correcto, valida la devolución y el préstamo se cierra.
+ROL_USUARIO: Solicita, recibe, usa, conserva y devuelve el equipo de forma responsable.
+ROL_RESPONSABLE_LABORATORIO: Revisa solicitudes, aprueba o rechaza préstamos, entrega equipos, valida devoluciones y registra observaciones.
+ROL_ADMINISTRADOR_SISTEMA: Mantiene datos, reglas, fuente consultiva y trazabilidad del sistema.
+POLITICA_DISPONIBILIDAD: La disponibilidad publicada es consultiva. No garantiza reserva, aprobación ni asignación.
+POLITICA_USO: Los equipos deben usarse únicamente para fines académicos o autorizados.
+POLITICA_DANO_PERDIDA_RETRASO: El daño, pérdida, retraso o mal uso debe ser revisado por el responsable y puede afectar futuras solicitudes de préstamo.
+LIMITACION_AGENTE: El agente consultivo no registra préstamos, no aprueba solicitudes, no asigna unidades, no modifica inventario, no confirma entregas y no valida devoluciones.
+FIN_NORMATIVA_PRESTAMO
 
-ALIAS Y EQUIVALENCIAS DE BÚSQUEDA
-Usar esta sección para resolver consultas con nombres abreviados, parciales o generales.
-Alias para Arduino UNO: Arduino UNO, arduino, Microcontroladores, Arduino, placa Arduino, microcontrolador Arduino, arduino uno, arduino disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
-Alias para Cautín: Cautín, cautin, Herramientas, Cautin, soldador, herramienta.
-Alias para ESP32: ESP32, esp32, Microcontroladores, placa ESP32, módulo ESP32, microcontrolador ESP32, esp 32, esp32 disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
-Alias para Fuente de poder: Fuente de poder, fuente, Instrumentos de medición, fuente DC, fuente de alimentación.
-Alias para Microcontrolador PIC: Microcontrolador PIC, pic, Microcontroladores, PIC, microcontroladores PIC, pic disponible, microcontrolador, microcontroladores, placas de desarrollo, kits de microcontroladores.
-Alias para Multímetro digital: Multímetro digital, multimetro, Instrumentos de medición, Multímetro, Multimetro, multimetro digital, instrumento de medición.
-Alias para Osciloscopio: Osciloscopio, osciloscopio, Instrumentos de medición, instrumento de medición, medición.
-Alias para Protoboard: Protoboard, protoboard, Accesorios, breadboard, placa de pruebas, accesorio.
-Alias para Sensor DHT22: Sensor DHT22, dht22, Sensores, sensor, sensores, equipo sensor, sensores disponibles, DHT22, sensor de temperatura, sensor de humedad, temperatura, humedad.
-Alias para Sensor MQ-2: Sensor MQ-2, mq-2, Sensores, sensor, sensores, equipo sensor, sensores disponibles, MQ-2, MQ2, sensor de gas, sensor de gases, sensor de humo.
-Alias para Sensor PMS5003: Sensor PMS5003, pms5003, Sensores, sensor, sensores, equipo sensor, sensores disponibles, PMS5003, sensor de partículas, sensor de particulas, sensor de polvo, calidad de aire.
+RESPUESTAS_DIRECTAS_OPERATIVAS
+PREGUNTA_PUEDE_REGISTRAR_PRESTAMO: No. Este agente es consultivo. Puede explicar el procedimiento, pero el registro del préstamo debe realizarse mediante el canal operativo del sistema n8n.
+PREGUNTA_PUEDE_APROBAR_SOLICITUD: No. Este agente es consultivo. La aprobación corresponde al responsable autorizado del laboratorio mediante el flujo operativo.
+PREGUNTA_PUEDE_RESERVAR_EQUIPO: No. La disponibilidad es solo referencial y no constituye reserva.
+FIN_RESPUESTAS_DIRECTAS_OPERATIVAS
 
-TABLA CSV DE DISPONIBILIDAD
-Equipo;Categoria;Codigo_normalizado;Total;Disponibles;Prestados;Mantenimiento;No_disponibles;Ultima_actualizacion;Fuente
-Arduino UNO;Microcontroladores;arduino;5;5;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Cautín;Herramientas;cautin;3;3;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-ESP32;Microcontroladores;esp32;17;3;14;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Fuente de poder;Instrumentos de medición;fuente;2;2;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Microcontrolador PIC;Microcontroladores;pic;4;4;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Multímetro digital;Instrumentos de medición;multimetro;3;3;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Osciloscopio;Instrumentos de medición;osciloscopio;1;1;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Protoboard;Accesorios;protoboard;12;12;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Sensor DHT22;Sensores;dht22;6;6;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Sensor MQ-2;Sensores;mq-2;2;2;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-Sensor PMS5003;Sensores;pms5003;2;2;0;0;0;2026-06-30T17:27:59.356Z;PostgreSQL
-
-PROCEDIMIENTO GENERAL DE PRÉSTAMO
-1. El estudiante o usuario realiza la solicitud de préstamo mediante el canal institucional definido por el laboratorio.
-2. La solicitud debe indicar el equipo requerido, cantidad, tiempo de uso y propósito académico.
-3. El responsable del laboratorio revisa la solicitud considerando disponibilidad consultiva, prioridad académica y cumplimiento de requisitos.
-4. Si procede, el responsable aprueba el préstamo.
-5. El equipo se entrega físicamente al usuario autorizado.
-6. El usuario debe verificar el estado del equipo al recibirlo.
-7. El usuario utiliza el equipo de forma responsable durante el periodo autorizado.
-8. El usuario devuelve el equipo en la fecha acordada y en condiciones adecuadas.
-9. El responsable valida la devolución, revisando estado físico e integridad de componentes.
-10. Si todo está correcto, el proceso de préstamo se cierra según el procedimiento institucional.
-
-REGLAMENTO Y CONDICIONES DE USO
-Los equipos del laboratorio deben solicitarse mediante el canal institucional definido por el laboratorio.
-El préstamo está sujeto a disponibilidad, aprobación del responsable y cumplimiento de las normas de uso, cuidado y devolución.
-La disponibilidad consultiva no garantiza aprobación ni asignación de préstamo.
-El usuario debe usar el equipo únicamente para fines académicos o autorizados.
-El usuario debe cuidar el equipo, evitar daños, pérdida o uso indebido, y devolverlo en las condiciones establecidas.
-
-ROLES Y RESPONSABILIDADES
-Estudiante o usuario solicitante: solicita, recibe, usa y devuelve el equipo de forma responsable.
-Responsable del laboratorio: revisa solicitudes, aprueba o rechaza según corresponda, entrega equipos y valida devoluciones.
-Administrador del sistema: mantiene la información institucional, la fuente consultiva y el control del inventario.
-
-POLÍTICAS ANTE DAÑO, PÉRDIDA, RETRASO O MAL USO
-En caso de daño, pérdida, retraso o mal uso, se aplicarán las políticas institucionales establecidas por el laboratorio.
-El caso debe ser revisado por el responsable correspondiente.
-El usuario puede asumir responsabilidades según la gravedad del incidente, el estado del equipo y las condiciones establecidas por el laboratorio.
-El retraso en la devolución puede afectar futuras solicitudes de préstamo.
-El daño, pérdida o uso indebido puede generar restricciones, reportes o medidas institucionales según corresponda.
-
-RESTRICCIONES DEL AGENTE CONSULTIVO
-El agente no registra préstamos.
-El agente no aprueba solicitudes.
-El agente no rechaza solicitudes.
-El agente no asigna equipos ni unidades físicas.
-El agente no modifica inventario.
-El agente no confirma entregas físicas.
-El agente no valida devoluciones.
-El agente no cambia estados de préstamos.
-El agente solo orienta y responde con base en esta fuente consultiva.
-
-RESPUESTAS ESPERADAS
-Si el usuario pregunta por un equipo específico, responder con total registrado, unidades disponibles, unidades prestadas, unidades en mantenimiento, unidades no disponibles y última actualización.
-Si el usuario pregunta si hay un equipo disponible para préstamo, responder según unidades disponibles y aclarar que es información consultiva.
-Si el usuario pregunta qué equipos hay disponibles, listar los equipos con unidades disponibles mayores a cero.
-Si el usuario pregunta por una categoría, agrupar los equipos de esa categoría.
-Si el usuario usa un nombre parcial, buscar coincidencias por nombre de equipo, código normalizado, categoría o alias.
-
-ACLARACIÓN FINAL
-Toda disponibilidad publicada en esta fuente es consultiva, referencial y agregada por tipo de equipo. No constituye reserva, asignación, aprobación ni confirmación de préstamo.</pre>
+FIN_FUENTE_CONSULTIVA_LST</pre>
 </main>
 </body>
 </html>
