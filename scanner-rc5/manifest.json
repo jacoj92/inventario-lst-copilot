@@ -1,0 +1,18 @@
+{
+  "etapa": "RC5-B3.2",
+  "modo": "solo_lectura_local",
+  "zxing_browser": "0.2.1",
+  "formatos_objetivo": [
+    "QR_CODE",
+    "CODE_128"
+  ],
+  "patron_rc5": "^[A-Z0-9]{1,30}-[0-9]{3,}$",
+  "prefijos_reservados": [
+    "PRE",
+    "DEV",
+    "TRZ",
+    "INV",
+    "SRU"
+  ],
+  "backend_n8n": false
+}
