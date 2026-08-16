@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <title>RC5 - Scanner de identificación física</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg:#0b1020;
+      --panel:#121a2b;
+      --panel2:#182238;
+      --text:#f3f4f6;
+      --muted:#9ca3af;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --bad:#ef4444;
+      --line:#2b3953;
+      --accent:#60a5fa;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      min-height:100vh;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#08101e,#0b1020 40%,#0a0f1b);
+      color:var(--text);
+    }
+    main {
+      width:min(760px,100%);
+      margin:0 auto;
+      padding:20px 16px 40px;
+    }
+    h1 { margin:0 0 4px; font-size:1.45rem; }
+    .subtitle { margin:0 0 18px; color:var(--muted); }
+    .card {
+      background:rgba(18,26,43,.96);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      margin:12px 0;
+      box-shadow:0 16px 40px rgba(0,0,0,.22);
+    }
+    .video-wrap {
+      position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+      border-radius:14px;
+      background:#000;
+      border:1px solid var(--line);
+    }
+    video {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .target {
+      pointer-events:none;
+      position:absolute;
+      inset:18% 9%;
+      border:2px solid rgba(255,255,255,.75);
+      border-radius:14px;
+      box-shadow:0 0 0 999px rgba(0,0,0,.18);
+    }
+    .target::before, .target::after {
+      content:"";
+      position:absolute;
+      width:34px;height:34px;
+      border-color:var(--accent);
+      border-style:solid;
+    }
+    .target::before {
+      left:-3px;top:-3px;border-width:4px 0 0 4px;border-radius:10px 0 0 0;
+    }
+    .target::after {
+      right:-3px;bottom:-3px;border-width:0 4px 4px 0;border-radius:0 0 10px 0;
+    }
+    .controls {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    button,label.file-button {
+      appearance:none;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px 14px;
+      background:var(--panel2);
+      color:var(--text);
+      font-weight:700;
+      font-size:.98rem;
+      text-align:center;
+      cursor:pointer;
+    }
+    button.primary { background:#1d4ed8; border-color:#3b82f6; }
+    button:disabled { opacity:.45; cursor:not-allowed; }
+    input[type=file] { display:none; }
+    .status {
+      margin-top:10px;
+      color:var(--muted);
+      font-size:.92rem;
+      min-height:1.4em;
+    }
+    .result-grid {
+      display:grid;
+      grid-template-columns:150px 1fr;
+      gap:8px 12px;
+      align-items:start;
+      font-size:.95rem;
+    }
+    .k { color:var(--muted); }
+    .v { overflow-wrap:anywhere; font-weight:650; }
+    .code {
+      font-size:1.55rem;
+      letter-spacing:.04em;
+      font-weight:850;
+    }
+    .badge {
+      display:inline-block;
+      padding:4px 8px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:800;
+    }
+    .badge.ok { background:rgba(34,197,94,.14); color:#86efac; }
+    .badge.bad { background:rgba(239,68,68,.14); color:#fca5a5; }
+    .badge.neutral { background:rgba(96,165,250,.14); color:#bfdbfe; }
+    .note {
+      font-size:.88rem;
+      line-height:1.45;
+      color:var(--muted);
+    }
+    .hidden { display:none !important; }
+    @media (max-width:520px) {
+      .controls { grid-template-columns:1fr; }
+      .result-grid { grid-template-columns:1fr; gap:2px; }
+      .k { margin-top:8px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>RC5 · Scanner de identificación física</h1>
+  <p class="subtitle">QR + Code 128 · piloto B3.2 · solo lectura local</p>
+
+  <section class="card">
+    <div class="video-wrap">
+      <video id="preview" muted playsinline></video>
+      <div class="target"></div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn" class="primary">Iniciar cámara</button>
+      <button id="stopBtn" disabled>Detener cámara</button>
+      <label for="fileInput" class="file-button">Leer imagen</label>
+      <button id="clearBtn">Limpiar resultado</button>
+    </div>
+
+    <input id="fileInput" type="file" accept="image/*" />
+    <div id="status" class="status">Listo. Presiona “Iniciar cámara”.</div>
+  </section>
+
+  <section class="card">
+    <div class="result-grid">
+      <div class="k">Valor leído</div>
+      <div id="rawValue" class="v code">—</div>
+
+      <div class="k">Código normalizado</div>
+      <div id="normalizedValue" class="v">—</div>
+
+      <div class="k">Formato físico</div>
+      <div id="barcodeFormat" class="v">—</div>
+
+      <div class="k">Contrato RC5</div>
+      <div id="validity" class="v"><span class="badge neutral">Sin lectura</span></div>
+
+      <div class="k">Fuente de captura</div>
+      <div id="captureSource" class="v">—</div>
+    </div>
+
+    <div class="controls">
+      <button id="copyBtn" disabled>Copiar código</button>
+      <button id="scanAgainBtn" disabled>Escanear otra vez</button>
+    </div>
+  </section>
+
+  <section class="card note">
+    <strong>RC5-B3.2:</strong> esta página solo decodifica y normaliza el identificador.
+    No consulta PostgreSQL, no entrega bienes, no devuelve bienes y no modifica inventario.
+    La integración con n8n será el siguiente paso después de validar QR y Code 128 físicamente.
+  </section>
+</main>
+
+<script src="https://unpkg.com/@zxing/browser@0.2.1"></script>
+<script>
+(() => {
+  'use strict';
+
+  const $ = (id) => document.getElementById(id);
+  const video = $('preview');
+  const startBtn = $('startBtn');
+  const stopBtn = $('stopBtn');
+  const clearBtn = $('clearBtn');
+  const copyBtn = $('copyBtn');
+  const scanAgainBtn = $('scanAgainBtn');
+  const fileInput = $('fileInput');
+  const statusEl = $('status');
+
+  const rawValueEl = $('rawValue');
+  const normalizedValueEl = $('normalizedValue');
+  const barcodeFormatEl = $('barcodeFormat');
+  const validityEl = $('validity');
+  const captureSourceEl = $('captureSource');
+
+  let codeReader = null;
+  let controls = null;
+  let lastNormalized = null;
+  let lastRaw = null;
+  let locked = false;
+
+  function normalizePhysicalIdentifier(value) {
+    const original = String(value ?? '');
+    const normalized = original
+      .normalize('NFKC')
+      .replace(/[\u2010\u2011\u2012\u2013\u2014\u2212\uFE58\uFE63\uFF0D]/g, '-')
+      .trim()
+      .toUpperCase();
+
+    const reserved = /^(PRE|DEV|TRZ|INV|SRU)-/i.test(normalized);
+    const lengthOk = normalized.length > 0 && normalized.length <= 80;
+    const formatOk = /^[A-Z0-9]{1,30}-[0-9]{3,}$/.test(normalized);
+    const valid = lengthOk && formatOk && !reserved;
+
+    let error = null;
+    if (!normalized) error = 'valor_vacio';
+    else if (!lengthOk) error = 'longitud_no_permitida';
+    else if (reserved) error = 'prefijo_reservado';
+    else if (!formatOk) error = 'formato_no_permitido';
+
+    return { original, normalized, valid, error };
+  }
+
+  function formatName(result) {
+    try {
+      const f = result.getBarcodeFormat ? result.getBarcodeFormat() : result.barcodeFormat;
+      if (typeof f === 'string') return f;
+      const Format = ZXingBrowser.BarcodeFormat || {};
+      for (const [key,val] of Object.entries(Format)) {
+        if (val === f && Number.isNaN(Number(key))) return key;
+      }
+      return String(f ?? 'desconocido');
+    } catch {
+      return 'desconocido';
+    }
+  }
+
+  function showResult(text, result, source) {
+    const parsed = normalizePhysicalIdentifier(text);
+    lastRaw = text;
+    lastNormalized = parsed.valid ? parsed.normalized : null;
+
+    rawValueEl.textContent = text || '—';
+    normalizedValueEl.textContent = parsed.normalized || '—';
+    barcodeFormatEl.textContent = result ? formatName(result) : 'imagen';
+    captureSourceEl.textContent = source;
+
+    if (parsed.valid) {
+      validityEl.innerHTML = '<span class="badge ok">Válido RC5</span>';
+      statusEl.textContent = `Identificador válido: ${parsed.normalized}`;
+      copyBtn.disabled = false;
+    } else {
+      validityEl.innerHTML = `<span class="badge bad">Inválido · ${parsed.error}</span>`;
+      statusEl.textContent = `Lectura recibida, pero no cumple el contrato RC5: ${parsed.error}`;
+      copyBtn.disabled = true;
+    }
+
+    scanAgainBtn.disabled = false;
+    locked = true;
+    if (controls) {
+      try { controls.stop(); } catch {}
+      controls = null;
+    }
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+  }
+
+  function clearResult() {
+    lastRaw = null;
+    lastNormalized = null;
+    locked = false;
+    rawValueEl.textContent = '—';
+    normalizedValueEl.textContent = '—';
+    barcodeFormatEl.textContent = '—';
+    captureSourceEl.textContent = '—';
+    validityEl.innerHTML = '<span class="badge neutral">Sin lectura</span>';
+    copyBtn.disabled = true;
+    scanAgainBtn.disabled = true;
+  }
+
+  async function startCamera() {
+    clearResult();
+    locked = false;
+
+    if (!window.ZXingBrowser) {
+      statusEl.textContent = 'No se pudo cargar ZXing Browser.';
+      return;
+    }
+    if (!navigator.mediaDevices?.getUserMedia) {
+      statusEl.textContent = 'Este navegador no permite acceso a cámara en este contexto.';
+      return;
+    }
+
+    try {
+      codeReader = new ZXingBrowser.BrowserMultiFormatReader();
+
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+      statusEl.textContent = 'Solicitando cámara trasera...';
+
+      controls = await codeReader.decodeFromConstraints(
+        {
+          audio: false,
+          video: {
+            facingMode: { ideal: 'environment' },
+            width: { ideal: 1280 },
+            height: { ideal: 720 }
+          }
+        },
+        video,
+        (result, error, ctrl) => {
+          if (result && !locked) {
+            const text = result.getText ? result.getText() : String(result.text || '');
+            showResult(text, result, 'camara');
+          }
+        }
+      );
+
+      statusEl.textContent = 'Cámara activa. Apunta al QR o al Code 128.';
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent =
+        'No fue posible iniciar la cámara. Verifica permisos y que la página esté publicada por HTTPS.';
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+    }
+  }
+
+  function stopCamera() {
+    if (controls) {
+      try { controls.stop(); } catch {}
+      controls = null;
+    }
+    try {
+      const stream = video.srcObject;
+      if (stream) stream.getTracks().forEach(t => t.stop());
+      video.srcObject = null;
+    } catch {}
+    statusEl.textContent = 'Cámara detenida.';
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+  }
+
+  async function scanImage(file) {
+    if (!file) return;
+    clearResult();
+
+    try {
+      statusEl.textContent = 'Analizando imagen...';
+      codeReader = new ZXingBrowser.BrowserMultiFormatReader();
+      const url = URL.createObjectURL(file);
+      try {
+        const result = await codeReader.decodeFromImageUrl(url);
+        const text = result.getText ? result.getText() : String(result.text || '');
+        showResult(text, result, 'imagen');
+      } finally {
+        URL.revokeObjectURL(url);
+      }
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent = 'No se detectó un QR o código de barras legible en la imagen.';
+    } finally {
+      fileInput.value = '';
+    }
+  }
+
+  startBtn.addEventListener('click', startCamera);
+  stopBtn.addEventListener('click', stopCamera);
+  clearBtn.addEventListener('click', () => {
+    clearResult();
+    statusEl.textContent = 'Resultado limpiado.';
+  });
+
+  scanAgainBtn.addEventListener('click', startCamera);
+
+  copyBtn.addEventListener('click', async () => {
+    if (!lastNormalized) return;
+    try {
+      await navigator.clipboard.writeText(lastNormalized);
+      statusEl.textContent = `Copiado: ${lastNormalized}`;
+    } catch {
+      statusEl.textContent = `Código: ${lastNormalized}`;
+    }
+  });
+
+  fileInput.addEventListener('change', e => scanImage(e.target.files?.[0]));
+
+  window.addEventListener('pagehide', stopCamera);
+})();
+</script>
+</body>
+</html>
