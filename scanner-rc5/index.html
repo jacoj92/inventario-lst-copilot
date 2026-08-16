@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#111827" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>RC5 - Scanner de identificación física</title>
   <style>
     :root {
@@ -33,6 +34,7 @@
       padding:20px 16px 40px;
     }
     h1 { margin:0 0 4px; font-size:1.45rem; }
+    h2 { margin:0 0 10px; font-size:1.08rem; }
     .subtitle { margin:0 0 18px; color:var(--muted); }
     .card {
       background:rgba(18,26,43,.96);
@@ -96,8 +98,22 @@
       cursor:pointer;
     }
     button.primary { background:#1d4ed8; border-color:#3b82f6; }
+    button.success { background:#166534; border-color:#22c55e; }
+    button.danger { background:#3f171b; border-color:#7f1d1d; }
     button:disabled { opacity:.45; cursor:not-allowed; }
     input[type=file] { display:none; }
+    input[type=password] {
+      width:100%;
+      appearance:none;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:13px 14px;
+      background:#0d1525;
+      color:var(--text);
+      font-size:1rem;
+      outline:none;
+    }
+    input[type=password]:focus { border-color:var(--accent); }
     .status {
       margin-top:10px;
       color:var(--muted);
@@ -106,7 +122,7 @@
     }
     .result-grid {
       display:grid;
-      grid-template-columns:150px 1fr;
+      grid-template-columns:170px 1fr;
       gap:8px 12px;
       align-items:start;
       font-size:.95rem;
@@ -127,12 +143,24 @@
     }
     .badge.ok { background:rgba(34,197,94,.14); color:#86efac; }
     .badge.bad { background:rgba(239,68,68,.14); color:#fca5a5; }
+    .badge.warn { background:rgba(245,158,11,.14); color:#fcd34d; }
     .badge.neutral { background:rgba(96,165,250,.14); color:#bfdbfe; }
     .note {
       font-size:.88rem;
       line-height:1.45;
       color:var(--muted);
     }
+    .message {
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#0d1525;
+      line-height:1.45;
+      overflow-wrap:anywhere;
+    }
+    .message.ok { border-color:rgba(34,197,94,.5); }
+    .message.bad { border-color:rgba(239,68,68,.5); }
     .hidden { display:none !important; }
     @media (max-width:520px) {
       .controls { grid-template-columns:1fr; }
@@ -144,7 +172,31 @@
 <body>
 <main>
   <h1>RC5 · Scanner de identificación física</h1>
-  <p class="subtitle">QR + Code 128 · piloto B3.2 · solo lectura local</p>
+  <p class="subtitle">QR + Code 128 · B3.3B · consulta segura de inventario</p>
+
+  <section class="card">
+    <h2>Acceso al servicio consultivo</h2>
+    <p class="note">
+      Introduce la clave RC5 del scanner. La clave se mantiene únicamente en memoria durante esta página:
+      no se guarda en GitHub, localStorage, sessionStorage ni cookies. Al recargar o cerrar la página se elimina.
+    </p>
+    <input
+      id="scannerKeyInput"
+      type="password"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Clave RC5 del scanner"
+      aria-label="Clave RC5 del scanner"
+    />
+    <div class="controls">
+      <button id="enableApiBtn" class="primary">Usar clave en esta sesión</button>
+      <button id="clearApiKeyBtn" class="danger" disabled>Bloquear consultas</button>
+    </div>
+    <div id="apiAccessStatus" class="status">
+      <span class="badge neutral">Consultas bloqueadas</span>
+    </div>
+  </section>
 
   <section class="card">
     <div class="video-wrap">
@@ -164,6 +216,7 @@
   </section>
 
   <section class="card">
+    <h2>Lectura física</h2>
     <div class="result-grid">
       <div class="k">Valor leído</div>
       <div id="rawValue" class="v code">—</div>
@@ -177,20 +230,60 @@
       <div class="k">Contrato RC5</div>
       <div id="validity" class="v"><span class="badge neutral">Sin lectura</span></div>
 
-      <div class="k">Fuente de captura</div>
+      <div class="k">Fuente de lectura</div>
       <div id="captureSource" class="v">—</div>
     </div>
 
     <div class="controls">
       <button id="copyBtn" disabled>Copiar código</button>
       <button id="scanAgainBtn" disabled>Escanear otra vez</button>
+      <button id="consultBtn" class="success" disabled>Consultar activo</button>
+    </div>
+  </section>
+
+  <section id="inventoryCard" class="card hidden">
+    <h2>Resultado de inventario</h2>
+    <div id="inventoryMessage" class="message">—</div>
+    <div id="inventoryFields" class="result-grid" style="margin-top:12px;">
+      <div class="k">Bien</div>
+      <div id="invBien" class="v">—</div>
+
+      <div class="k">Código</div>
+      <div id="invCodigo" class="v">—</div>
+
+      <div class="k">Categoría</div>
+      <div id="invCategoria" class="v">—</div>
+
+      <div class="k">Estado</div>
+      <div id="invEstado" class="v">—</div>
+
+      <div class="k">Condición</div>
+      <div id="invCondicion" class="v">—</div>
+
+      <div class="k">Disponible para préstamo</div>
+      <div id="invDisponible" class="v">—</div>
+
+      <div class="k">Laboratorio</div>
+      <div id="invLaboratorio" class="v">—</div>
+
+      <div class="k">Ubicación</div>
+      <div id="invUbicacion" class="v">—</div>
+
+      <div class="k">Préstamo activo</div>
+      <div id="invPrestamo" class="v">—</div>
+
+      <div class="k">Estado del préstamo</div>
+      <div id="invEstadoPrestamo" class="v">—</div>
+
+      <div class="k">Trazabilidad</div>
+      <div id="invTrazabilidad" class="v">—</div>
     </div>
   </section>
 
   <section class="card note">
-    <strong>RC5-B3.2:</strong> esta página solo decodifica y normaliza el identificador.
-    No consulta PostgreSQL, no entrega bienes, no devuelve bienes y no modifica inventario.
-    La integración con n8n será el siguiente paso después de validar QR y Code 128 físicamente.
+    <strong>RC5-B3.3B:</strong> el scanner identifica QR y Code 128 y puede consultar el estado real de la unidad
+    mediante la API consultiva de n8n. La operación es exclusivamente de lectura: no entrega bienes, no procesa
+    devoluciones y no modifica el inventario.
   </section>
 </main>
 
@@ -199,6 +292,10 @@
 (() => {
   'use strict';
 
+  const API_URL = 'https://n8n.lab-inventory.com/webhook/mi-scanner-rc5-consulta';
+  const API_TIMEOUT_MS = 15000;
+  const SUPPORTED_FORMATS = new Set(['QR_CODE', 'CODE_128']);
+
   const $ = (id) => document.getElementById(id);
   const video = $('preview');
   const startBtn = $('startBtn');
@@ -206,8 +303,14 @@
   const clearBtn = $('clearBtn');
   const copyBtn = $('copyBtn');
   const scanAgainBtn = $('scanAgainBtn');
+  const consultBtn = $('consultBtn');
   const fileInput = $('fileInput');
   const statusEl = $('status');
+
+  const scannerKeyInput = $('scannerKeyInput');
+  const enableApiBtn = $('enableApiBtn');
+  const clearApiKeyBtn = $('clearApiKeyBtn');
+  const apiAccessStatus = $('apiAccessStatus');
 
   const rawValueEl = $('rawValue');
   const normalizedValueEl = $('normalizedValue');
@@ -215,11 +318,18 @@
   const validityEl = $('validity');
   const captureSourceEl = $('captureSource');
 
+  const inventoryCard = $('inventoryCard');
+  const inventoryMessage = $('inventoryMessage');
+
   let codeReader = null;
   let controls = null;
   let lastNormalized = null;
   let lastRaw = null;
+  let lastFormat = null;
+  let lastCaptureSource = null;
   let locked = false;
+  let scannerKey = null;
+  let consulting = false;
 
   function normalizePhysicalIdentifier(value) {
     const original = String(value ?? '');
@@ -257,17 +367,49 @@
     }
   }
 
+  function updateConsultButton() {
+    consultBtn.disabled = !(
+      scannerKey &&
+      lastNormalized &&
+      SUPPORTED_FORMATS.has(lastFormat) &&
+      !consulting
+    );
+  }
+
+  function clearInventoryResult() {
+    inventoryCard.classList.add('hidden');
+    inventoryMessage.textContent = '—';
+    inventoryMessage.className = 'message';
+    for (const id of [
+      'invBien','invCodigo','invCategoria','invEstado','invCondicion','invDisponible',
+      'invLaboratorio','invUbicacion','invPrestamo','invEstadoPrestamo','invTrazabilidad'
+    ]) {
+      $(id).textContent = '—';
+    }
+  }
+
   function showResult(text, result, source) {
+    clearInventoryResult();
+
     const parsed = normalizePhysicalIdentifier(text);
+    const physicalFormat = result ? formatName(result) : 'DESCONOCIDO';
+    const supportedPhysicalFormat = SUPPORTED_FORMATS.has(physicalFormat);
+
     lastRaw = text;
-    lastNormalized = parsed.valid ? parsed.normalized : null;
+    lastNormalized = parsed.valid && supportedPhysicalFormat ? parsed.normalized : null;
+    lastFormat = physicalFormat;
+    lastCaptureSource = source;
 
     rawValueEl.textContent = text || '—';
     normalizedValueEl.textContent = parsed.normalized || '—';
-    barcodeFormatEl.textContent = result ? formatName(result) : 'imagen';
+    barcodeFormatEl.textContent = physicalFormat;
     captureSourceEl.textContent = source;
 
-    if (parsed.valid) {
+    if (!supportedPhysicalFormat) {
+      validityEl.innerHTML = '<span class="badge bad">Formato físico no soportado</span>';
+      statusEl.textContent = `RC5-B3.3B admite QR_CODE y CODE_128. Formato recibido: ${physicalFormat}`;
+      copyBtn.disabled = true;
+    } else if (parsed.valid) {
       validityEl.innerHTML = '<span class="badge ok">Válido RC5</span>';
       statusEl.textContent = `Identificador válido: ${parsed.normalized}`;
       copyBtn.disabled = false;
@@ -285,11 +427,14 @@
     }
     startBtn.disabled = false;
     stopBtn.disabled = true;
+    updateConsultButton();
   }
 
   function clearResult() {
     lastRaw = null;
     lastNormalized = null;
+    lastFormat = null;
+    lastCaptureSource = null;
     locked = false;
     rawValueEl.textContent = '—';
     normalizedValueEl.textContent = '—';
@@ -298,6 +443,128 @@
     validityEl.innerHTML = '<span class="badge neutral">Sin lectura</span>';
     copyBtn.disabled = true;
     scanAgainBtn.disabled = true;
+    clearInventoryResult();
+    updateConsultButton();
+  }
+
+  function enableApiAccess() {
+    const candidate = scannerKeyInput.value.trim();
+    if (candidate.length < 32) {
+      apiAccessStatus.innerHTML = '<span class="badge bad">Clave no cargada</span> La clave RC5 debe tener al menos 32 caracteres.';
+      scannerKey = null;
+      clearApiKeyBtn.disabled = true;
+      updateConsultButton();
+      return;
+    }
+
+    scannerKey = candidate;
+    scannerKeyInput.value = '';
+    apiAccessStatus.innerHTML = '<span class="badge ok">Clave cargada en memoria</span> Se validará con n8n al realizar una consulta.';
+    clearApiKeyBtn.disabled = false;
+    updateConsultButton();
+  }
+
+  function clearApiAccess(message = 'Consultas bloqueadas. La clave fue eliminada de la memoria de esta página.') {
+    scannerKey = null;
+    scannerKeyInput.value = '';
+    clearApiKeyBtn.disabled = true;
+    apiAccessStatus.innerHTML = `<span class="badge neutral">Consultas bloqueadas</span> ${message}`;
+    updateConsultButton();
+  }
+
+  async function consultInventory() {
+    if (!scannerKey) {
+      apiAccessStatus.innerHTML = '<span class="badge bad">Falta clave RC5</span> Introduce la clave para habilitar consultas.';
+      updateConsultButton();
+      return;
+    }
+    if (!lastNormalized || !SUPPORTED_FORMATS.has(lastFormat) || consulting) return;
+
+    consulting = true;
+    consultBtn.disabled = true;
+    consultBtn.textContent = 'Consultando...';
+    inventoryCard.classList.remove('hidden');
+    inventoryMessage.className = 'message';
+    inventoryMessage.textContent = `Consultando ${lastNormalized} en el inventario...`;
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
+
+    const payload = {
+      codigo_activo: lastNormalized,
+      valor_recibido: lastRaw || lastNormalized,
+      formato_fisico: lastFormat,
+      dispositivo_captura: lastCaptureSource === 'imagen' ? 'archivo_imagen_web' : 'camara_web',
+      request_id: `web-b33b-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      timestamp_cliente: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-store',
+        credentials: 'omit',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-RC5-Scanner-Key': scannerKey
+        },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+
+      let data = null;
+      try {
+        data = await response.json();
+      } catch {
+        data = null;
+      }
+
+      if (!response.ok) {
+        if (response.status === 401 || response.status === 403) {
+          clearApiAccess('n8n rechazó la credencial. Vuelve a introducir la clave RC5.');
+        }
+        const detail = data?.respuesta || data?.message || `HTTP ${response.status}`;
+        throw new Error(detail);
+      }
+
+      if (!data || typeof data !== 'object') {
+        throw new Error('La API respondió sin un objeto JSON válido.');
+      }
+
+      const boolText = data.disponible_para_prestamo === true
+        ? 'Sí'
+        : data.disponible_para_prestamo === false
+          ? 'No'
+          : '—';
+
+      inventoryMessage.className = 'message ok';
+      inventoryMessage.textContent = data.respuesta || 'Consulta completada.';
+      $('invBien').textContent = data.bien || '—';
+      $('invCodigo').textContent = data.codigo_activo || lastNormalized;
+      $('invCategoria').textContent = data.categoria || '—';
+      $('invEstado').textContent = data.estado_unidad || data.estado || '—';
+      $('invCondicion').textContent = data.condicion_unidad || '—';
+      $('invDisponible').textContent = boolText;
+      $('invLaboratorio').textContent = data.laboratorio || '—';
+      $('invUbicacion').textContent = data.ubicacion || '—';
+      $('invPrestamo').textContent = data.codigo_prestamo || 'Ninguno';
+      $('invEstadoPrestamo').textContent = data.estado_prestamo || '—';
+      $('invTrazabilidad').textContent = data.trazabilidad || '—';
+
+      statusEl.textContent = `Consulta completada: ${data.codigo_activo || lastNormalized}`;
+    } catch (err) {
+      console.error(err);
+      inventoryMessage.className = 'message bad';
+      inventoryMessage.textContent = err?.name === 'AbortError'
+        ? 'La consulta excedió el tiempo de espera. Intenta nuevamente.'
+        : `No fue posible consultar el inventario: ${err?.message || 'error desconocido'}`;
+    } finally {
+      clearTimeout(timeout);
+      consulting = false;
+      consultBtn.textContent = 'Consultar activo';
+      updateConsultButton();
+    }
   }
 
   async function startCamera() {
@@ -330,7 +597,7 @@
           }
         },
         video,
-        (result, error, ctrl) => {
+        (result) => {
           if (result && !locked) {
             const text = result.getText ? result.getText() : String(result.text || '');
             showResult(text, result, 'camara');
@@ -386,6 +653,12 @@
     }
   }
 
+  enableApiBtn.addEventListener('click', enableApiAccess);
+  clearApiKeyBtn.addEventListener('click', () => clearApiAccess());
+  scannerKeyInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') enableApiAccess();
+  });
+
   startBtn.addEventListener('click', startCamera);
   stopBtn.addEventListener('click', stopCamera);
   clearBtn.addEventListener('click', () => {
@@ -394,6 +667,7 @@
   });
 
   scanAgainBtn.addEventListener('click', startCamera);
+  consultBtn.addEventListener('click', consultInventory);
 
   copyBtn.addEventListener('click', async () => {
     if (!lastNormalized) return;
@@ -407,7 +681,10 @@
 
   fileInput.addEventListener('change', e => scanImage(e.target.files?.[0]));
 
-  window.addEventListener('pagehide', stopCamera);
+  window.addEventListener('pagehide', () => {
+    scannerKey = null;
+    stopCamera();
+  });
 })();
 </script>
 </body>
